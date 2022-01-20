@@ -1,0 +1,5 @@
+{
+	"ip":"localhost",
+	"port":"6379",
+	"defaultCacheInSeconds":30
+}

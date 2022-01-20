@@ -1,0 +1,7 @@
+{
+	"timeout": 12500,
+	"main_api": "https://go-solr02.devops.arabiaweather.com/solr/goArabiaWeather/select?q=",
+	"assets": "/assets",
+	"image_resizer":"https://iresizer.devops.arabiaweather.com/resize?url=[src]&size=[width]x[height]",
+	"geos": "http://geos.devops.arabiaweather.com"
+}

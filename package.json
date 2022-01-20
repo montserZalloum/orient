@@ -1,0 +1,30 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js -p 3000",
+    "develop": "nodemon index.js -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/montserZalloum/cms"
+  },
+  "author": "M. Zalloum",
+  "license": "ISC",
+  "homepage": "https://github.com/montserZalloum/cms#readme",
+  "dependencies": {
+    "async": "^2.6.3",
+    "axios": "^0.18.1",
+    "commander": "^4.1.0",
+    "cookie-parser": "^1.4.5",
+    "ect": "^0.5.9",
+    "express": "^4.17.1",
+    "express-basic-auth": "^1.2.0",
+    "konphyg": "^1.5.0",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4"
+  }
+}

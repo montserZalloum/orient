@@ -1,0 +1,59 @@
+<% extend 'admin-layout.ect' %>
+
+<% block 'page-title' : %> Info <% end %>
+
+<% block 'body-class' : %>adminpage <% end %>
+
+<% block 'head' : %>
+
+<% end %>
+
+
+
+<% block 'page-header' : %>
+<header class="page-header">
+    <div class="container-fluid">
+      <h2 class="mb-0">Home</h2>
+    </div>
+</header>
+<% end %>
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <form>
+                <input id="avatar-input" onchange="uploadAvatart()" class="form-control-file" type="file" accept="image/*" name="photo" >
+                <input class="btn mt-3" type="submit" value="upload">
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    function uploadAvatart(){
+    if(document.getElementById('avatar-input').files && document.getElementById('avatar-input').files[0]){
+          avatarForm = new FormData();
+          avatarForm.append("file", document.getElementById('avatar-input').files[0], document.getElementById('avatar-input').files[0].name);
+          $.ajax({
+              "url": "/uploadImage",
+              "method": "PUT",
+              "timeout": 0,
+              "headers": {
+                  "enctype": "multipart/form-data"
+              },
+              "processData": false,
+              "mimeType": "multipart/form-data",
+              "contentType": false,
+              "data": avatarForm
+              }).done(function (response) {
+              alert(true,'تم تغيير الصورة بنجاح ')
+              $('.user-prof-img').attr('src',blob);
+              loading(false)
+              }).fail(function(err){
+                  console.log('uploadAvatart ajax error::',err);
+              alert(false,'يرجى المحاولة مرة أخرى')
+              loading(false)
+              });
+    }
+    }
+</script>

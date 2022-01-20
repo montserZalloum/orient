@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="<%- @lang %>">
+  <head>
+    <% include 'includes/admin/head.ect' %>
+    <% content 'meta' %>
+    <% content 'head' %>
+  </head>
+  <body class="<% content 'body-class' %> lang-ar dir-rtl">
+    <div class="page">
+      <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <% include 'includes/admin/sidenav.ect' %>
+        <div class="content-inner">
+          <!-- Page Header-->
+          <% content 'page-header' %>
+          <!-- Breadcrumb-->
+          <% content 'breadcrumb' %>
+          <!-- page sections -->
+          <% content %> 
+          
+          <% include 'includes/admin/foot.ect' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-success">
+      <strong>Success!</strong>
+    </div>
+    <div class="alert alert-danger">
+        <strong>Fail!</strong>
+    </div>
+    <div class="alert alert-info">
+        <strong>Please Wait</strong>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+    <% content 'footer-scripts' %>
+  </body>
+</html>

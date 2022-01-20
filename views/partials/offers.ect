@@ -1,0 +1,122 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <h3 class="h4">Offers</h3>
+      <button type="button" data-toggle="modal" data-target="#newOffer" class="btn btn-primary">ADD</button>
+    </div>
+    <div class="card-body">
+      <small>* You have 5 offers only on home page</small>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Visible in home page</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody type="offer">
+          <% for idx,itm of @data : %>
+            <tr id="<%- itm._id %>">
+              <th scope="row">
+                <%- itm.title %>
+              </th>
+              <th scope="row">
+                <%- itm.fromDate %>
+              </th>
+              <th scope="row">
+                <%- itm.toDate %>
+              </th>
+              <th scope="row">
+                <% if itm.promoted : %>Yes<%else:%>No<%end%>
+              </th>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#remove" remove-validation>Remove</button></td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="newOffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  class="modal fade text-left">
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="exampleModalLabel" class="modal-title">New Offer</h4>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+            aria-hidden="true">×</span></button>
+      </div>
+      <form form="offer" action="#" onsubmit="add('offer');return false">
+        <div class="modal-body">
+
+          <div class="form-group row">
+            <label class="col-sm-3 form-control-label">Title</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" required id="title">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 form-control-label">Image</label>
+            <div class="col-sm-9">
+              <input type="file" class="file-control" required id="offer_image">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 form-control-label">From Date</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" required id="fromdate">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 form-control-label">To Date</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" required id="todate">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 form-control-label">Show in Home Page</label>
+            <div class="col-sm-8">
+              <div class="i-checks">
+                <input id="promoted" type="checkbox" class="checkbox-template">
+                <label for="checkboxCustom2"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-primary" value="Save">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="remove" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  class="modal fade text-left">
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="exampleModalLabel" class="modal-title">Do you want to remove this offer</h4>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+            aria-hidden="true">×</span></button>
+      </div>
+      
+        <div class="modal-body">
+          <div class="form-group row">
+            <div class="col-sm-12 d-flex">
+              <button type="button" class="btn btn-danger w-50 m-2" remove kind="offer">YES</button>
+              <button type="button" class="btn btn-secondary w-50 m-2" data-dismiss="modal" >NO</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
