@@ -59,8 +59,10 @@ exports.saveData = function(req,res){
       var obj = {
           [id] : {
           "name": req.body.name,
+          "name-ar": req.body['name-ar'],
           "image": req.body.image,
-          "description": req.body.description,
+          "description": req.body['description'],
+          "description-ar": req.body['description-ar'],
           "exportable": req.body.exportable
         }
       }
@@ -98,11 +100,13 @@ exports.editData = function(req,res){
       
       fileDate[id] = {
         "name": req.body.name,
+        "name-ar": req.body['name-ar'],
         "image": req.body['edit-image'],
         "description": req.body.description,
+        "description-ar": req.body['description-ar'],
         "exportable": req.body.exportable
       }
-      
+
       fileDate = JSON.stringify(fileDate);
 
       fs.writeFileSync(configsUrl + "/products.json", fileDate);

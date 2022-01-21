@@ -1,0 +1,98 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <h3 class="h4">Resources Data</h3>
+          </div>
+          <div class="card-body">
+              <form type="resources">
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Banner Text</label>
+                    <div class="col-sm-8">
+                        <textarea rows="4" class="form-control" required id="banner-text"><%- @data['banner-text'] %></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Banner Text (ar)</label>
+                    <div class="col-sm-8">
+                        <textarea rows="4" class="form-control" required id="banner-text-ar"><%- @data['banner-text-ar'] %></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Our Projects Message</label>
+                    <div class="col-sm-8">
+                        <textarea rows="4" class="form-control" required id="our-projects-text"><%- @data['our-projects-text'] %></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Our Projects Message (ar)</label>
+                    <div class="col-sm-8">
+                        <textarea rows="4" class="form-control" required id="our-projects-text-ar"><%- @data['our-projects-text-ar'] %></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Footer Text</label>
+                    <div class="col-sm-8">
+                        <textarea rows="4" class="form-control" required id="footer-text"><%- @data['footer-text'] %></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Footer Text (ar)</label>
+                    <div class="col-sm-8">
+                        <textarea rows="4" class="form-control" required id="footer-text-ar"><%- @data['footer-text-ar'] %></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Mobile No.</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" required id="mobile" value="<%- @data['mobile'] %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Address</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" required id="address" value="<%- @data['address'] %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Email</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" required id="email" value="<%- @data['email'] %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Facebook</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" id="facebook" value="<%- @data['facebook'] %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">instagram</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" id="instagram" value="<%- @data['instagram'] %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Linkedin</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" id="linkedin" value="<%- @data['linkedin'] %>">
+                    </div>
+                </div>
+                
+                
+                <div class="form-group justify-content-center mt-5 row">
+                    <div class="col-sm-4">
+                        <input type="submit" class="w-100 btn btn-primary" value="Save">
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

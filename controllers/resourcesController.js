@@ -2,21 +2,8 @@ var fs = require("fs");
 var path = require("path");
 var configsUrl = path.normalize(__dirname + "/../configs");
 var config = require("konphyg")(configsUrl);
-const multer = require('multer');
-let storage = multer.diskStorage({
-   destination: function (req, file, cb) {
-      cb(null, './uploads')
-   },
-   filename: function (req, file, cb) {
-      let extArray = file.mimetype.split("/");
-      let extension = extArray[extArray.length - 1];
-      cb(null, file.fieldname + '-' + Date.now()+ '.' +extension)
-   }
-})
-const upload = multer({ storage: storage })
 
-
-exports.getAdminAboutus = function (req, res, params, callback) {
+exports.getAdminResources = function (req, res, params, callback) {
   var result = {
     json: null,
     html: ""
@@ -29,18 +16,18 @@ exports.getAdminAboutus = function (req, res, params, callback) {
       delete fileDate._merge;
       
 
-      res.render('partials/admin/aboutus.ect', {
+      res.render('partials/admin/resources.ect', {
         conf: req.conf,
         data: fileDate,
       }, function (err, html) {
         if (err) {
-            console.error(("Error Rendering ("+req.conf.reqUrl+") => partials/admin/aboutus.ect::"), err);
+            console.error(("Error Rendering ("+req.conf.reqUrl+") => partials/admin/resources.ect::"), err);
             return callback(result);
         } else {
             try {
                 result.html = html;
             } catch (exp) {
-                console.warn(("Failed Minifying partials/admin/aboutus.ect::"), exp);
+                console.warn(("Failed Minifying partials/admin/resources.ect::"), exp);
                 result.html = html;
             }
             return callback(result);
@@ -53,7 +40,7 @@ exports.getAdminAboutus = function (req, res, params, callback) {
     }
 
   } catch (exp) {
-    console.error("getAdminAboutus exp::", exp);
+    console.error("getAdminResources exp::", exp);
     //            require('./errorpageController.js').get500(req,res);
     return callback(result);
   }
@@ -67,17 +54,22 @@ exports.saveData = function(req,res){
       var fileDate = config("resources");
       delete fileDate._merge;
 
-
-      fileDate.whoweare = req.body.whoweare
-      fileDate.ourgoals = req.body.ourgoals
-      fileDate.ourmission = req.body.ourmission
-      fileDate['whoweare-ar'] = req.body['whoweare-ar']
-      fileDate['ourgoals-ar'] = req.body['ourgoals-ar']
-      fileDate['ourmission-ar'] = req.body['ourmission-ar']
+      console.log(req.body);
+      fileDate['banner-text'] = req.body['banner-text']
+      fileDate['banner-text-ar'] = req.body['banner-text-ar']
       
-      fileDate['whoweare-image'] = req.body['whoweare-image']
-      fileDate['ourgoals-image'] = req.body['ourgoals-image']
-      fileDate['ourmission-image'] = req.body['ourmission-image']
+      fileDate['our-projects-text'] = req.body['our-projects-text']
+      fileDate['our-projects-text-ar'] = req.body['our-projects-text-ar']
+      
+      fileDate['footer-text'] = req.body['footer-text']
+      fileDate['footer-text-ar'] = req.body['footer-text-ar']
+
+      fileDate['mobile'] = req.body['mobile']
+      fileDate['address'] = req.body['address']
+      fileDate['email'] = req.body['email']
+      fileDate['facebook'] = req.body['facebook']
+      fileDate['instagram'] = req.body['instagram']
+      fileDate['linkedin'] = req.body['linkedin']
       
       fileDate = JSON.stringify(fileDate);
       fs.writeFileSync(configsUrl + "/resources.json", fileDate);

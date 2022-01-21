@@ -5,7 +5,7 @@ const basicAuth = require('express-basic-auth');
 
 var basicAuthOptions = {
     users: {
-        'admin': 'Awi$N0tEzy',
+        'admin': 'tw1234',
     },
     challenge: true
 };
@@ -16,22 +16,25 @@ var basicAuthObj = basicAuth(basicAuthOptions);
 // *******
 // admin
 // *******
-router.get('/', require('../controllers/adminpageController.js').getAdminpage);
+router.get('/',basicAuthObj ,require('../controllers/adminpageController.js').getAdminpage);
 // about us
-router.get('/admin/about-us', require('../controllers/aboutuspageController.js').getAdminAboutUspage);
-router.post('/admin/about-us', require('../controllers/aboutusController.js').saveData);
+router.get('/admin/about-us',basicAuthObj ,require('../controllers/aboutuspageController.js').getAdminAboutUspage);
+router.post('/admin/about-us',basicAuthObj ,require('../controllers/aboutusController.js').saveData);
+// resources
+router.get('/admin/resources',basicAuthObj ,require('../controllers/resourcespageController').getAdminResourcespage);
+router.post('/admin/resources',basicAuthObj ,require('../controllers/resourcesController.js').saveData);
 // products
-router.get('/admin/products', require('../controllers/productspageController.js').getAdminProductspage);
-router.post('/add-product', require('../controllers/productsController.js').saveData);
-router.post('/edit-product', require('../controllers/productsController.js').editData);
-router.post('/remove-product', require('../controllers/productsController.js').removeProduct);
+router.get('/admin/products',basicAuthObj ,require('../controllers/productspageController.js').getAdminProductspage);
+router.post('/add-product',basicAuthObj ,require('../controllers/productsController.js').saveData);
+router.post('/edit-product',basicAuthObj ,require('../controllers/productsController.js').editData);
+router.post('/remove-product',basicAuthObj ,require('../controllers/productsController.js').removeProduct);
 // projects
-router.get('/admin/projects', require('../controllers/projectspageController.js').getAdminProjectspage);
-router.post('/add-project', require('../controllers/projectsController.js').saveData);
-router.post('/edit-project', require('../controllers/projectsController.js').editData);
-router.post('/remove-project', require('../controllers/projectsController.js').removeProduct);
+router.get('/admin/projects',basicAuthObj ,require('../controllers/projectspageController.js').getAdminProjectspage);
+router.post('/add-project',basicAuthObj ,require('../controllers/projectsController.js').saveData);
+router.post('/edit-project',basicAuthObj ,require('../controllers/projectsController.js').editData);
+router.post('/remove-project',basicAuthObj ,require('../controllers/projectsController.js').removeProject);
 
-router.post('/image-upload', require('../controllers/adminController.js').uploadImage);
+router.post('/image-upload',basicAuthObj ,require('../controllers/adminController.js').uploadImage);
 
 
 

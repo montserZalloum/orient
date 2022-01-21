@@ -59,8 +59,10 @@ exports.saveData = function(req,res){
       var obj = {
           [id] : {
           "name": req.body.name,
+          "name-ar": req.body['name-ar'],
           "image": req.body.image,
           "location": req.body.location,
+          "location-ar": req.body['location-ar'],
           "exportable": req.body.exportable
         }
       }
@@ -97,8 +99,10 @@ exports.editData = function(req,res){
       
       fileDate[id] = {
         "name": req.body.name,
+        "name-ar": req.body['name-ar'],
         "image": req.body['edit-image'],
         "location": req.body.location,
+        "location-ar": req.body['location-ar'],
         "exportable": req.body.exportable
       }
       
@@ -119,14 +123,13 @@ exports.editData = function(req,res){
 }
 
 
-exports.removeProduct = function(req,res){
+exports.removeProject = function(req,res){
 
   try {
     config.clear();
     if (fs.existsSync(configsUrl + "/projects.json")) {
       var fileDate = config("projects");
       delete fileDate._merge;
-      console.log(req.body);
       delete fileDate[req.body.id];
       fileDate = JSON.stringify(fileDate);
 

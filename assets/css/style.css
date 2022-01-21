@@ -1,6 +1,6 @@
 :root {
-    --main: #796AEE;
-    --main-hover: #5a48ea;
+    --main: #ed7534;
+    --main-hover: #f39867;
     --secondary: #868e96;
     --red: #dc3545;
 }
@@ -277,7 +277,7 @@ nav.side-navbar a i {
 
 nav.side-navbar ul li a:hover, nav.side-navbar ul li.active>a {
     background: var(--main);
-    border-left: 4px solid #3b25e6;
+    border-left: 4px solid  var(--main-hover);
     color: #fff!important;
 }
 
@@ -487,8 +487,8 @@ button, input {
     background-color: #fff;
     border-color: var(--main);
     outline: none;
-    -webkit-box-shadow: 0 0 0 0.2rem rgb(121 106 238 / 25%);
-    box-shadow: 0 0 0 0.2rem rgb(121 106 238 / 25%);
+    -webkit-box-shadow: 0 0 0 0.2rem rgb(237 117 52 / 25%);
+    box-shadow: 0 0 0 0.2rem rgb(237 117 52 / 25%);
 }
 
 select.form-control option {

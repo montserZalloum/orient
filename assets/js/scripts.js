@@ -56,7 +56,27 @@ function add(type) {
             data = {
                 'whoweare': $('#whoweare').val(),
                 'ourgoals': $('#ourgoals').val(),
-                'ourmission': $('#ourmission').val()
+                'ourmission': $('#ourmission').val(),
+                'whoweare-ar': $('#whoweare-ar').val(),
+                'ourgoals-ar': $('#ourgoals-ar').val(),
+                'ourmission-ar': $('#ourmission-ar').val(),
+            }
+            break;
+        case 'resources':
+            url = '/admin/resources';
+            data = {
+                'banner-text': $('#banner-text').val(),
+                'banner-text-ar': $('#banner-text-ar').val(),
+                'our-projects-text': $('#our-projects-text').val(),
+                'our-projects-text-ar': $('#our-projects-text-ar').val(),
+                'footer-text': $('#footer-text').val(),
+                'footer-text-ar': $('#footer-text-ar').val(),
+                'mobile': $('#mobile').val(),
+                'address': $('#address').val(),
+                'email': $('#email').val(),
+                'facebook': $('#facebook').val(),
+                'instagram': $('#instagram').val(),
+                'linkedin': $('#linkedin').val(),
             }
             break;
         // product
@@ -65,8 +85,10 @@ function add(type) {
             data = {
                 'id': Math.random().toString(36).slice(2),
                 'name': $('#name').val(),
+                'name-ar': $('#name-ar').val(),
                 'image': $('#image').val(),
                 'description': $('#description').val(),
+                'description-ar': $('#description-ar').val(),
                 'exportable': $('#exportable').is(':checked')
             }
             options.refresh = true
@@ -76,7 +98,9 @@ function add(type) {
             data = { 
                 'id': $('#edit-id').val(),
                 'name': $('#edit-name').val(),
+                'name-ar': $('#edit-name-ar').val(),
                 'description': $('#edit-description').val(),
+                'description-ar': $('#edit-description-ar').val(),
                 'exportable': $('#edit-exportable').is(':checked')
             }
             options.refresh = true
@@ -87,8 +111,10 @@ function add(type) {
             data = {
                 'id': Math.random().toString(36).slice(2),
                 'name': $('#name').val(),
+                'name-ar': $('#name-ar').val(),
                 'image': $('#image').val(),
                 'location': $('#location').val(),
+                'location-ar': $('#location-ar').val(),
                 'exportable': $('#exportable').is(':checked')
             }
             options.refresh = true
@@ -98,14 +124,15 @@ function add(type) {
             data = { 
                 'id': $('#edit-id').val(),
                 'name': $('#edit-name').val(),
+                'name-ar': $('#edit-name-ar').val(),
                 'location': $('#edit-location').val(),
+                'location-ar': $('#edit-location-ar').val(),
                 'exportable': $('#edit-exportable').is(':checked')
             }
             options.refresh = true
             break;
     }
 
-    
     $('form[type="'+type+'"] [required-img][type="file"]').each(function () {
         hasImage = true;
         var id = $(this).attr('id')
@@ -139,7 +166,7 @@ function callApi(url,data,options) {
     }).done(function (data) {
         showAlert(true)
         if (options.hasOwnProperty('refresh'))
-            location.reload()
+            window.location.reload()
     }).fail(function (err) {
         showAlert(false)
     });
@@ -186,6 +213,9 @@ $('[remove-id]').click(function() {
         case 'product':
             $('.modal [data-type="'+type+'"]').attr('remove',id)
             break;
+        case 'project':
+            $('.modal [data-type="'+type+'"]').attr('remove',id)
+            break;
     }
     
 })
@@ -199,14 +229,18 @@ $('.edit-btn').click(function () {
         case 'edit-product':
             $(rootForm).find('#edit-id').val(id)
             $(rootForm).find('#edit-name').val($(elRoot).find('[prod-name]').html())
+            $(rootForm).find('#edit-name-ar').val($(elRoot).find('[prod-name-ar]').html())
             $(rootForm).find('#edit-description').val($(elRoot).find('[prod-desc]').html())
+            $(rootForm).find('#edit-description-ar').val($(elRoot).find('[prod-desc-ar]').html())
             $(rootForm).find('[append-image] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
             $(rootForm).find('#edit-exportable').prop('checked',($(elRoot).find('[prod-exportable]').html() == 'true' ? true : false ))
             break;
         case 'edit-project':
             $(rootForm).find('#edit-id').val(id)
             $(rootForm).find('#edit-name').val($(elRoot).find('[prod-name]').html())
+            $(rootForm).find('#edit-name-ar').val($(elRoot).find('[prod-name-ar]').html())
             $(rootForm).find('#edit-location').val($(elRoot).find('[prod-location]').html())
+            $(rootForm).find('#edit-location-ar').val($(elRoot).find('[prod-location-ar]').html())
             $(rootForm).find('[append-image] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
             $(rootForm).find('#edit-exportable').prop('checked',($(elRoot).find('[prod-exportable]').html() == 'true' ? true : false ))
             break;
@@ -215,7 +249,6 @@ $('.edit-btn').click(function () {
 
 $('[remove]').click(function(){
     id = $(this).attr('remove');
-    console.log(id);
     type = $(this).attr('data-type');
     var url = ''
     switch (type) {

@@ -3,6 +3,7 @@ var path = require("path");
 var configsUrl = path.normalize(__dirname + "/../configs");
 var config = require("konphyg")(configsUrl);
 const multer = require('multer');
+
 let storage = multer.diskStorage({
    destination: function (req, file, cb) {
       cb(null, './uploads')
@@ -86,3 +87,4 @@ exports.uploadImage = function(req,res) {
     res.status(500).send('error')
   }
 };
+

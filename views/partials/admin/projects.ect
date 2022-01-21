@@ -22,8 +22,10 @@
               <tbody type="offer">
                 <% for key,project of @data :%>
                     <tr root-id="<%- key %>">
-                        <th scope="row"><div prod-name class="one-line" style="max-width: 200px;"><%- project.name %></div></th>
+                        <th scope="row" ><div prod-name class="one-line" style="max-width: 200px;"><%- project.name %></div></th>
+                        <th scope="row" hidden><div prod-name-ar><%- project['name-ar'] %></div></th>
                         <th scope="row"><div prod-location class="one-line" style="max-width: 200px;"><%- project.location %></div></th>
+                        <th scope="row" hidden><div prod-location-ar><%- project['location-ar'] %></div></th>
                         <th scope="row"><img prod-img style="width: 100px;" src="/uploads/<%- project.image %>"></th>
                         <th scope="row" prod-exportable><%- project.exportable %></th>
                         <td>
@@ -59,6 +61,12 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Name (ar)</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" required id="name-ar">
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="col-sm-3 form-control-label">image</label>
               <div class="col-sm-9">
                 <input required-img type="file" class="form-control-file" accept="image/*" id="image" file>
@@ -70,7 +78,13 @@
             <div class="form-group row">
               <label class="col-sm-3 form-control-label">Location</label>
               <div class="col-sm-9">
-                <textarea rows="8" class="form-control" required id="location"></textarea>
+                <input class="form-control" required id="location">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Location (ar)</label>
+              <div class="col-sm-9">
+                <input class="form-control" required id="location-ar">
               </div>
             </div>
             <div class="form-group row">
@@ -129,6 +143,12 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Name (ar)</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" required id="edit-name-ar">
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="col-sm-3 form-control-label">image</label>
               <div class="col-sm-9">
                 <input required-img type="file" class="form-control-file" accept="image/*" id="edit-image" file>
@@ -140,7 +160,13 @@
             <div class="form-group row">
               <label class="col-sm-3 form-control-label">Location</label>
               <div class="col-sm-9">
-                <textarea rows="8" class="form-control" required id="edit-location"></textarea>
+                <input  class="form-control" required id="edit-location">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Location (ar)</label>
+              <div class="col-sm-9">
+                <input  class="form-control" required id="edit-location-ar">
               </div>
             </div>
             <div class="form-group row">
