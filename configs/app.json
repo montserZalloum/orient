@@ -1,15 +1,15 @@
 {
 	"appName": {
-		"en": "ArabiaWeather GO",
-		"ar": "طقس العرب GO"
+		"en": "OrientAbdeen",
+		"ar": "خقهثرف"
 	},
 	"siteName": {
-		"en": "ArabiaWeather GO",
-		"ar": "طقس العرب GO"
+		"en": "OrientAbdeen",
+		"ar": "خقهثرف"
 	},
 	"description": {
-		"en": "ArabiaWeather GO",
-		"ar": "خدمة طقس العرب GO تتيح لك اخر العروض و الخصومات الحصرية في الاردن و عمان مثل المطاعم ، الحلويات  المزارع الشاليهات الاطباء العيادات الطبية الاجهزة الكهربائية والالكترونيات  الملابس خدمات النقل و الشحن الصالونات و مراكز التجميل العاب الاطفال و الهدايا صيانة السيارات المحامص والعديد من القطاعات الاخرى."
+		"en": "OrientAbdeen",
+		"ar": ""
 	},
 	"domain": "go.arabiaweather.com",
 	"protocol": "https",

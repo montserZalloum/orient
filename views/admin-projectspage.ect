@@ -1,0 +1,21 @@
+<% extend 'admin-layout.ect' %>
+
+<% block 'page-title' : %> Our Projects <% end %>
+
+<% block 'body-class' : %>projectspage <% end %>
+
+<% block 'head' : %>
+
+<% end %>
+
+
+
+<% block 'page-header' : %>
+<header class="page-header">
+    <div class="container-fluid">
+      <h2 class="mb-0">Our Projects</h2>
+    </div>
+</header>
+<% end %>
+
+<%- @modules.adminProjectsList.html %>

@@ -28,6 +28,7 @@ app.set('view engine', 'ect');
 app.engine('ect', ectRenderer.render);
 //serve static assets
 app.use('/assets', express.static('assets'));
+app.use('/uploads', express.static('uploads'));
 
 app.listen(program.port);
 console.log('Listening on port '+program.port);

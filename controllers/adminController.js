@@ -11,7 +11,8 @@ let storage = multer.diskStorage({
       let extArray = file.mimetype.split("/");
       let extension = extArray[extArray.length - 1];
       cb(null, file.fieldname + '-' + Date.now()+ '.' +extension)
-   }
+   },
+   limits: { fileSize: 10 * 1000 * 1000 }
 })
 const upload = multer({ storage: storage })
 
@@ -72,40 +73,16 @@ exports.getTest = function (req, res, params, callback) {
 
 
 exports.uploadImage = function(req,res) {
-  var result = {
-    json: null,
-    html: "",
-    delivered: 0,
-  };
-
   try {
-
-
-   // var storage = multer.diskStorage({
-   //    destination: function (req, file, cb) {
-   //       cb(null, 'uploads/')
-   //    },
-   //    filename: function (req, file, cb) {
-   //       console.log(file.mimetype);
-   //       cb(null, Date.now() + '.jpg') //Appending .jpg
-   //    },
-   //    limits: { fileSize: 10 * 1000 * 1000 }
-   // })
-   console.log(req.body);
-   upload.single('file')(req,res,function(uploadErr) {
-      console.log('sss');
-      res.send('uploaded successfully');
+    upload.single(req.query.id)(req,res,function(uploadErr) {
+      if (!uploadErr) {
+        res.status(200).send({id:req.query.id,fileName: req.file.filename});
+      } else {
+        res.status(500).send('error')
+      }
    });
-   // app.post('/upload', upload.single('photo'), (req, res) => {
-   //    console.log('bbbb');
-   //       if(req.file) {
-   //          return res.send('uploaded successfully');
-   //       }
-   //       else throw 'error';
-   // });
   } catch (exp) {
     console.error("uploadImage exp::".red, exp);
-    //            require('./errorpageController.js').get500(req,res);
-    return callback(result);
+    res.status(500).send('error')
   }
 };

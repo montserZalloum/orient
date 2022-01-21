@@ -1,0 +1,61 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <h3 class="h4">About us Data</h3>
+          </div>
+          <div class="card-body">
+              <form type="aboutus">
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Who We Are</label>
+                    <div class="col-sm-8">
+                        <textarea rows="8" class="form-control" required id="whoweare"><%- @data.whoweare %></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                        <input required-img type="file" class="form-control-file" accept="image/*" id="whoweare-image" file>
+                        <div class="" append-image="whoweare-image">
+                            <img class="w-100 mt-2" src="/uploads/<%- @data['whoweare-image'] %>">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Our Goals</label>
+                    <div class="col-sm-8">
+                        <textarea rows="8" class="form-control" required id="ourgoals"><%- @data.ourgoals %></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                        <input required-img type="file" class="form-control-file" accept="image/*" id="ourgoals-image" file>
+                        <div class="" append-image="ourgoals-image">
+                            <img class="w-100 mt-2" src="/uploads/<%- @data['ourgoals-image'] %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Our Mission</label>
+                    <div class="col-sm-8">
+                        <textarea rows="8" class="form-control" required id="ourmission"><%- @data.ourmission %></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                        <input required-img type="file" class="form-control-file" accept="image/*" id="ourmission-image" file>
+                        <div class="" append-image="ourmission-image">
+                            <img class="w-100 mt-2" src="/uploads/<%- @data['ourmission-image'] %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group justify-content-center mt-5 row">
+                    <div class="col-sm-4">
+                        <input type="submit" class="w-100 btn btn-primary" value="Save">
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

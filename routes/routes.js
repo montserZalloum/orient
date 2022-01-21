@@ -13,8 +13,25 @@ var basicAuthOptions = {
 var basicAuthObj = basicAuth(basicAuthOptions);
 
 /* Routes */
+// *******
+// admin
+// *******
 router.get('/', require('../controllers/adminpageController.js').getAdminpage);
-router.put('/uploadImage', require('../controllers/adminController.js').uploadImage);
+// about us
+router.get('/admin/about-us', require('../controllers/aboutuspageController.js').getAdminAboutUspage);
+router.post('/admin/about-us', require('../controllers/aboutusController.js').saveData);
+// products
+router.get('/admin/products', require('../controllers/productspageController.js').getAdminProductspage);
+router.post('/add-product', require('../controllers/productsController.js').saveData);
+router.post('/edit-product', require('../controllers/productsController.js').editData);
+router.post('/remove-product', require('../controllers/productsController.js').removeProduct);
+// projects
+router.get('/admin/projects', require('../controllers/projectspageController.js').getAdminProjectspage);
+router.post('/add-project', require('../controllers/projectsController.js').saveData);
+router.post('/edit-project', require('../controllers/projectsController.js').editData);
+router.post('/remove-project', require('../controllers/projectsController.js').removeProduct);
+
+router.post('/image-upload', require('../controllers/adminController.js').uploadImage);
 
 
 

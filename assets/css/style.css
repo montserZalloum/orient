@@ -561,3 +561,12 @@ body > .skiptranslate , .goog-gt-tt {
 small {
     color:var(--red);
 }
+.one-line, .three-line, .two-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.one-line {
+    -webkit-line-clamp: 1;
+}

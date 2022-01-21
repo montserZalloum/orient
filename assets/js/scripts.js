@@ -1,137 +1,27 @@
-$(document).ready(function () {
-
-    $('.menu-btn').click(function () {
-        $(this).toggleClass('active');
-        $('.side-navbar').toggleClass('shrinked')
-        $('.content-inner').toggleClass('active')
-    });
-
-    $('[remove]').click(function () {
-        var id = $(this).attr('remove');
-        var type = $(this).attr('kind');
-        $('[form=' + type + ']')
-        remove(type, id)
-    });
-    $('[remove-validation]').click(function () {
-        var id = $(this).parents('tr').attr('id');
-        $('[remove]').attr('remove', id)
-    });
+$('.menu-btn').click(function () {
+    $(this).toggleClass('active');
+    $('.side-navbar').toggleClass('shrinked')
+    $('.content-inner').toggleClass('active')
+});
 
 
-    function remove(type, id) {
-        var url = '';
-        data = {
-            'id': id
-        }
-        switch (type) {
-            case 'branch':
-                url = '/remove-branch';
-                break;
-            case 'offer':
-                url = '/remove-offer';
-                break;
-        }
-
-        $.ajax({
-            url: url,
-            method: 'DELETE',
-            data: data
-        }).done(function (data) {
-            console.log('DONE::', data);
-            location.reload();
-        }).fail(function (err) {
-            showAlert(false)
-        });
+$('form[type]').submit(function (e) {
+    var type = $(this).attr('type')
+    if (!add(type)) {
+        e.preventDefault()
     }
-
-    function showAlert(status) {
-        var selector = '.alert.alert-success';
-        status ? selector = '.alert.alert-success' : selector = '.alert.alert-danger'
-        $(selector).addClass('active');
-        setTimeout(function () {
-            $(selector).removeClass('active');
-        }, 1500)
-    }
-
-
-
 })
 
 
-function add(type) {
-    var url = '';
-    var data = {};
-    var validate = true;
-    var filedCheck = {
-        hasImage: false,
-        image: null,
-        src: null
-    }
-    loading(true)
-    switch (type) {
-        case 'branch':
-            url = '/add-branch';
-            data = {
-                'name': $('#branchName').val(),
-                'phoneNumber': $('#branchNumber').val()
-            }
-            break;
-        case 'offer':
-            url = '/add-offer';
-            var offerImage = $('#offer_image').val()
-            if (offerImage)
-                filedCheck.hasImage = true;
-            filedCheck.image = $('#offer_image')
-            data = {
-                'title': $('#title').val(),
-                'fromDate': $('#fromdate').val(),
-                'toDate': $('#todate').val(),
-                'promoted': $('#promoted').is(':checked'),
-                'phoneNumber': $('#branchNumber').val()
-            }
 
-            var d1 = Date.parse($('#fromdate').val())
-            var d2 = Date.parse($('#todate').val())
-            if (d2 < d1)
-                validate = false
-            break;
-        case 'contactus':
-            
-            var storeImage = $('#store_logo').val()
-            if (storeImage)
-                filedCheck.hasImage = true
-            filedCheck.image = $('#store_logo')
-            var id = $('#contact_id').val();
-            if (id)
-                url = '/update-contactus/' + id;
-            else
-                url = '/update-contactus';
-            data = {
-                'title': $('#title').val(),
-                'slogan': $('#slogan').val(),
-                'map': $('#map').val(),
-                'direction': $('#direction').val(),
-                'phoneNumber': $('#contact_number').val(),
-                'website': $('#website').val(),
-                'facebook': $('#facebook').val(),
-                'instagram': $('#instagram').val(),
-                'whatsapp': $('#whatsapp').val()
-            }
-            break;
-    }
-
-    if (!validate) {
-        showAlert(false)
-        return false
-    }
-
-    if (filedCheck.hasImage) {
-        file = $(filedCheck.image).get(0).files[0];
+$('[file]').on('change', function(){
+    var id = $(this).attr('id');
+    if(document.getElementById(id).files && document.getElementById(id).files[0]){
+        file = document.getElementById(id).files[0]
         var form = new FormData();
-
-        form.append("file", file, file.name);
+        form.append(id, file, file.name);
         var settings = {
-            "url": "/image-upload",
+            "url": "/image-upload?id="+id,
             "method": "POST",
             "timeout": 0,
             "processData": false,
@@ -139,32 +29,122 @@ function add(type) {
             "contentType": false,
             "data": form
         };
-
+        
         $.ajax(settings).done(function (response) {
-            var src = JSON.parse(response).path;
-            data.image = src
-            // $('[form='+type+']').find('[append-image]').attr('src',src)
-            callApi()
+            var data = JSON.parse(response)
+            $('[append-image="'+id+'"] img').attr('src','/uploads/'+ data.fileName)
         });
-    } else {
-        callApi()
+    }
+})
+
+function add(type) {
+    
+    var url = '';
+    var data = {};
+    var validate = true;
+    var hasImage = false;
+    var options = {}
+    loading(true)
+    $('form[type="'+type+'"] [required]:not([type="file"])').each(function () {
+        if ($(this).val() == '')
+            validate = false
+    })
+    
+    switch (type) {
+        case 'aboutus':
+            url = '/admin/about-us';
+            data = {
+                'whoweare': $('#whoweare').val(),
+                'ourgoals': $('#ourgoals').val(),
+                'ourmission': $('#ourmission').val()
+            }
+            break;
+        // product
+        case 'new-product':
+            url = '/add-product';
+            data = {
+                'id': Math.random().toString(36).slice(2),
+                'name': $('#name').val(),
+                'image': $('#image').val(),
+                'description': $('#description').val(),
+                'exportable': $('#exportable').is(':checked')
+            }
+            options.refresh = true
+            break;
+        case 'edit-product':
+            url = '/edit-product';
+            data = { 
+                'id': $('#edit-id').val(),
+                'name': $('#edit-name').val(),
+                'description': $('#edit-description').val(),
+                'exportable': $('#edit-exportable').is(':checked')
+            }
+            options.refresh = true
+            break;
+        // project
+        case 'new-project':
+            url = '/add-project';
+            data = {
+                'id': Math.random().toString(36).slice(2),
+                'name': $('#name').val(),
+                'image': $('#image').val(),
+                'location': $('#location').val(),
+                'exportable': $('#exportable').is(':checked')
+            }
+            options.refresh = true
+            break;
+        case 'edit-project':
+            url = '/edit-project';
+            data = { 
+                'id': $('#edit-id').val(),
+                'name': $('#edit-name').val(),
+                'location': $('#edit-location').val(),
+                'exportable': $('#edit-exportable').is(':checked')
+            }
+            options.refresh = true
+            break;
     }
 
-    function callApi() {
-        loading(false)
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: data
-        }).done(function (data) {
-            console.log('DONE::', data);
-            location.reload();
-        }).fail(function (err) {
-            showAlert(false)
-        });
+    
+    $('form[type="'+type+'"] [required-img][type="file"]').each(function () {
+        hasImage = true;
+        var id = $(this).attr('id')
+        var val = $('[append-image="'+id+'"] img').attr('src')
+        if (val == '/uploads/') {
+            $(this).attr('required',true)
+            validate = false
+        } else {
+            $(this).attr('required',false)
+            data[id] = val.replace('/uploads/','');
+        }
+    });
+                
+    if (!validate) {
+        loading(false);
+        showAlert(false)
+        return false
     }
+    
+    callApi(url,data,options)
+    return false
 }
 
+
+function callApi(url,data,options) {
+    loading(false)
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: data
+    }).done(function (data) {
+        showAlert(true)
+        if (options.hasOwnProperty('refresh'))
+            location.reload()
+    }).fail(function (err) {
+        showAlert(false)
+    });
+}
+            
 function showAlert(status) {
     var selector = '.alert.alert-success';
     status ? selector = '.alert.alert-success' : selector = '.alert.alert-danger'
@@ -182,31 +162,81 @@ function loading(status) {
 }
 
 function logout() {
- 
-	// To invalidate a basic auth login:
-	// 
-	// 	1. Call this logout function.
-	//	2. It makes a GET request to an URL with false Basic Auth credentials
-	//	3. The URL returns a 401 Unauthorized
-	// 	4. Forward to some "you-are-logged-out"-page
-	// 	5. Done, the Basic Auth header is invalid now
- 
-	$.ajax({
-            type: "GET",
-            url: "/",
-            async: false,
-            username: "logmeout",
-            password: "123456",
-            headers: { "Authorization": "Basic xxx" }
-	})
-	.done(function(){
-	    // If we don't get an error, we actually got an error as we expect an 401!
-	})
-	.fail(function(){
-	    // We expect to get an 401 Unauthorized error! In this case we are successfully 
-            // logged out and we redirect the user.
-	    window.location = "/";
+    $.ajax({
+        type: "GET",
+        url: "/",
+        async: false,
+        username: "logmeout",
+        password: "123456",
+        headers: { "Authorization": "Basic xxx" }
+    })
+    .done(function(){
+    })
+    .fail(function(){
+        window.location = "/";
     });
- 
+    
     return false;
 }
+
+$('[remove-id]').click(function() {
+    id = $(this).attr('remove-id');
+    type = $(this).attr('data-type');
+    switch (type) {
+        case 'product':
+            $('.modal [data-type="'+type+'"]').attr('remove',id)
+            break;
+    }
+    
+})
+
+$('.edit-btn').click(function () {
+    id = $(this).attr('edit-id');
+    type = $(this).attr('data-type');
+    var rootForm = $('.modal form[type="'+type+'"]')
+    var elRoot = $(this).parents('[root-id="'+id+'"]');
+    switch (type) {
+        case 'edit-product':
+            $(rootForm).find('#edit-id').val(id)
+            $(rootForm).find('#edit-name').val($(elRoot).find('[prod-name]').html())
+            $(rootForm).find('#edit-description').val($(elRoot).find('[prod-desc]').html())
+            $(rootForm).find('[append-image] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
+            $(rootForm).find('#edit-exportable').prop('checked',($(elRoot).find('[prod-exportable]').html() == 'true' ? true : false ))
+            break;
+        case 'edit-project':
+            $(rootForm).find('#edit-id').val(id)
+            $(rootForm).find('#edit-name').val($(elRoot).find('[prod-name]').html())
+            $(rootForm).find('#edit-location').val($(elRoot).find('[prod-location]').html())
+            $(rootForm).find('[append-image] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
+            $(rootForm).find('#edit-exportable').prop('checked',($(elRoot).find('[prod-exportable]').html() == 'true' ? true : false ))
+            break;
+    }
+})
+
+$('[remove]').click(function(){
+    id = $(this).attr('remove');
+    console.log(id);
+    type = $(this).attr('data-type');
+    var url = ''
+    switch (type) {
+        case 'product':
+            url = '/remove-product'
+            break;
+        case 'project':
+            url = '/remove-project'
+            break;
+    }
+
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: {id: id}
+    }).done(function (data) {
+        showAlert(true)
+        setTimeout(function(){
+            location.reload()
+        },1000)
+    }).fail(function (err) {
+        showAlert(false)
+    });
+})
