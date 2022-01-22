@@ -16,7 +16,6 @@ exports.getAdminProductsList = function (req, res, params, callback) {
       var fileDate = config("products");
       delete fileDate._merge;
       
-      console.log(fileDate);
       res.render('partials/admin/products.ect', {
         conf: req.conf,
         data: fileDate,
@@ -131,8 +130,8 @@ exports.removeProduct = function(req,res){
     if (fs.existsSync(configsUrl + "/products.json")) {
       var fileDate = config("products");
       delete fileDate._merge;
-      console.log(req.body);
       delete fileDate[req.body.id];
+      
       fileDate = JSON.stringify(fileDate);
 
       fs.writeFileSync(configsUrl + "/products.json", fileDate);

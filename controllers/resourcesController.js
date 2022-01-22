@@ -54,7 +54,6 @@ exports.saveData = function(req,res){
       var fileDate = config("resources");
       delete fileDate._merge;
 
-      console.log(req.body);
       fileDate['banner-text'] = req.body['banner-text']
       fileDate['banner-text-ar'] = req.body['banner-text-ar']
       

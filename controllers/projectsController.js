@@ -16,7 +16,6 @@ exports.getAdminProjectsList = function (req, res, params, callback) {
       var fileDate = config("projects");
       delete fileDate._merge;
       
-      console.log(fileDate);
       res.render('partials/admin/projects.ect', {
         conf: req.conf,
         data: fileDate,

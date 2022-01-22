@@ -280,7 +280,10 @@ nav.side-navbar ul li a:hover, nav.side-navbar ul li.active>a {
     border-left: 4px solid  var(--main-hover);
     color: #fff!important;
 }
-
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgb(237 117 52 / 25%);
+    box-shadow: 0 0 0 0.2rem rgb(237 117 52 / 25%);
+}
 .breadcrumb-holder {
     background: #fff;
 }
@@ -534,7 +537,7 @@ select.form-control option {
     border-color: var(--main-hover);
 }
 .btn-primary.focus, .btn-primary:focus {
-    box-shadow: 0 0 0 0.2rem rgb(121 105 238 / 40%);
+    box-shadow: 0 0 0 0.2rem rgb(237 117 52 / 25%);
 }
 .content-inner.active {
     width: calc(100% - 90px);

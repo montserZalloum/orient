@@ -39,8 +39,7 @@ exports.getTest = function (req, res, params, callback) {
       delete fileDate._merge;
       fileDate[Object.keys({ student })[0]] = student;
       fileDate = JSON.stringify(fileDate);
-      console.log(fileDate);
-      // fileDate = fileDate + student
+
       fs.writeFileSync(configsUrl + "/projects.json", fileDate);
     }
 
