@@ -3,7 +3,7 @@ var path = require("path");
 var configsUrl = path.normalize(__dirname + "/../configs");
 var config = require("konphyg")(configsUrl);
 const multer = require('multer');
-
+var nodemailer = require('nodemailer');
 let storage = multer.diskStorage({
    destination: function (req, file, cb) {
       cb(null, './uploads')
@@ -45,26 +45,6 @@ exports.getTest = function (req, res, params, callback) {
     }
 
     return callback(result);
-    // if (requesterErr) {
-    //    console.error('getCitiesList requesterErr::'.red, requesterErr);
-    //    result.delivered = end.seconds();
-    //    return callback(result);
-    // } else {
-    //    res.render('partials/citiesFilter.ect', {
-    //          conf: req.conf,
-    //          t: req.conf.translate,
-    //          data: requesterResp
-    //    }, function (err, html) {
-    //          if (err) {
-    //             console.error(("Error Rendering (" + req.conf.reqUrl.underline + ") => citiesFilter.ect::").red, err);
-    //          } else {
-    //             result.html = html;
-    //          }
-    //          result.json = requesterResp;
-    //          result.delivered = end.seconds();
-    //          return callback(result);
-    //    });
-    // }
   } catch (exp) {
     console.error("getCitiesList exp::".red, exp);
     //            require('./errorpageController.js').get500(req,res);
@@ -88,3 +68,25 @@ exports.uploadImage = function(req,res) {
   }
 };
 
+// var transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: 'zmontsaer@gmail.com',
+//     'pass': 'Az0120188'
+//   }
+// })
+
+// var mailOptions = {
+//   from: 'zmontsaer@gmail.com',
+//   to : 'montaser.zalloum@arabiaweather.com',
+//   subject: 'Someone sent you an message',
+//   text: 'Hello World!'
+// }
+
+// transporter.sendMail(mailOptions,function(err,info){
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     console.log('Email sent: ' + info.response)
+//   }
+// })
