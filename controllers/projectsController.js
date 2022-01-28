@@ -46,6 +46,33 @@ exports.getAdminProjectsList = function (req, res, params, callback) {
   }
 };
 
+exports.getProjectsList = function (req, res, params, callback) {
+  var result = {
+    json: null,
+    html: ""
+  };
+
+  try {
+    config.clear();
+    if (fs.existsSync(configsUrl + "/projects.json")) {
+      var fileDate = config("projects");
+      delete fileDate._merge;
+      
+      return callback(fileDate);
+
+
+    } else {
+      return callback(result);
+    }
+
+  } catch (exp) {
+    console.error("getProjectsList exp::", exp);
+    //            require('./errorpageController.js').get500(req,res);
+    return callback(result);
+  }
+
+};
+
 exports.saveData = function(req,res){
 
   try {

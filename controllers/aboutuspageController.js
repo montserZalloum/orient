@@ -8,3 +8,13 @@ exports.getAdminAboutUspage = function (req, res) {
       });
    });
 }
+
+exports.getAboutUspage = function (req, res) {
+   require('../models/aboutuspageModel').getAboutUspageContent(req, res, {}, function (mdlErr, mdlResp) {
+      return res.render('aboutuspage.ect', {
+         conf: req.conf,
+         modules: mdlResp,
+         pageName: 'aboutus'
+      });
+   });
+}

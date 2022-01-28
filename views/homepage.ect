@@ -1,27 +1,117 @@
-<% extend 'admin-layout.ect' %>
+<% extend 'layout.ect' %>
 
-<% block 'page-title' : %> Info <% end %>
+<% block 'page-title' : %> Home <% end %>
 
 <% block 'body-class' : %>front homepage <% end %>
 
-<% block 'head' : %>
-
-<% end %>
-
-
-
-<% block 'page-header' : %>
-<header class="page-header">
-    <div class="container-fluid">
-      <h2 class="mb-0">Home</h2>
-    </div>
-</header>
-<% end %>
-
-<section>
-    <div class="container-fluid">
-        <div class="row">
-            
+<section class="banner-box relative">
+    <img class="main-img" src="https://i.pinimg.com/originals/01/5a/17/015a1757e67f766a12621af543b3a5fd.jpg">
+    <div class="container z-1 d-flex align-center h-100 justify-center">
+        <div class="">
+            <h1 class="bold white pre-line center font-40">No.1 Manufacture of 
+                Agricultural, Construction 
+                equipment and Machinery</h1>
+            <div class="center mt-40">
+                <a class="btn" href="/products" title="">View Products</a>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- who we are -->
+<%- @modules.resources['banner-text'] %>
+<% include 'partials/who-we-are.ect' %>
+
+<!-- our products -->
+<section class="our-products-section center pb-60">
+    <div class="container">
+        <h2 class="font-26 bold">Our Products</h2>
+        <div class="pt-20 products-list d-flex space-between flex-wrap">
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+        </div>
+        <div class="d-flex justify-center mt-10">
+            <a class="btn" href="/products" title="">View All Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- projects banner -->
+<section class="our-projects-banner center relative">
+    <div class="container z-1">
+        <h2 class="uppercase font-40 bold blue pb-20">OUR PROJECTS</h2>
+        <p class="blue font-40 pre-line">A MESSAGE ABOUT THE PROJECTS AND 
+            THE QUALITY OF WORK DONE IN THEM</p>
+    </div>
+</section>
+
+<!-- projects list -->
+<div class="project-list-box mt-30">
+    <div class="container">
+        <div class="project-list d-flex space-between flex-wrap">
+            <div class="project-box">
+                <a class="d-block" href="#" title="">
+                    <figure class="relative">
+                        <img class="object-fit" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="386" height="240" alt="">
+                    </figure>
+                    <div class="d-flex space-between align-center pt-20 flex-wrap">
+                        <p class="font-18 bold black">Project Name</p>
+                        <p class="font-18 black">Project Name</p>
+                    </div>
+                </a>
+            </div>
+            <div class="project-box">
+                <a class="d-block" href="#" title="">
+                    <figure class="relative">
+                        <img class="object-fit" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="386" height="240" alt="">
+                    </figure>
+                    <div class="d-flex space-between align-center pt-20 flex-wrap">
+                        <p class="font-18 bold black">Project Name</p>
+                        <p class="font-18 black">Project Name</p>
+                    </div>
+                </a>
+            </div>
+            <div class="project-box">
+                <a class="d-block" href="#" title="">
+                    <figure class="relative">
+                        <img class="object-fit" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="386" height="240" alt="">
+                    </figure>
+                    <div class="d-flex space-between align-center pt-20 flex-wrap">
+                        <p class="font-18 bold black">Project Name</p>
+                        <p class="font-18 black">Project Name</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -46,6 +46,32 @@ exports.getAdminProductsList = function (req, res, params, callback) {
   }
 };
 
+exports.getProductsList = function (req, res, params, callback) {
+  var result = {
+    json: null,
+    html: ""
+  };
+
+  try {
+    config.clear();
+    if (fs.existsSync(configsUrl + "/products.json")) {
+      var fileDate = config("products");
+      delete fileDate._merge;
+      
+      return callback(fileDate);
+
+
+    } else {
+      return callback(result);
+    }
+
+  } catch (exp) {
+    console.error("getAdminProductsList exp::", exp);
+    //            require('./errorpageController.js').get500(req,res);
+    return callback(result);
+  }
+};
+
 exports.saveData = function(req,res){
 
   try {
@@ -147,3 +173,44 @@ exports.removeProduct = function(req,res){
   }
 
 }
+
+exports.getProduct = function (req, res, params, callback) {
+  var result = {
+    json: null,
+    html: ""
+  };
+
+  try {
+    config.clear();
+    if (fs.existsSync(configsUrl + "/products.json")) {
+      var fileDate = config("products");
+      delete fileDate._merge;
+      
+      res.render('partials/product.ect', {
+        conf: req.conf,
+        data: fileDate,
+      }, function (err, html) {
+        if (err) {
+            console.error(("Error Rendering ("+req.conf.reqUrl+") => partials/product.ect::"), err);
+            return callback(result);
+        } else {
+            try {
+                result.html = html;
+            } catch (exp) {
+                console.warn(("Failed Minifying partials/product.ect::"), exp);
+                result.html = html;
+            }
+            return callback(result);
+        }
+      });
+
+
+    } else {
+      return callback(result);
+    }
+
+  } catch (exp) {
+    console.error("getProduct exp::", exp);
+    return callback(result);
+  }
+};

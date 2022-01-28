@@ -14,3 +14,18 @@ exports.getAdminProjectspageContent = function(req,res,params,callback){
         return callback(err,results);
     });
 }
+
+exports.getProjectspageContent = function(req,res,params,callback){
+    async.parallel({
+        projectsList: function(cb) {
+            require('../controllers/projectsController').getProjectsList(req,res,{},function(result){
+                return cb(null, result);
+            });
+        },
+    }, function(err, results) {
+        if(err){
+            console.error("getProjectspageContent err:",err)
+        }
+        return callback(err,results);
+    });
+}

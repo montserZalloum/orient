@@ -1,0 +1,54 @@
+<% extend 'layout.ect' %>
+
+<% block 'page-title' : %> Products <% end %>
+
+<% block 'body-class' : %>front productspage <% end %>
+
+<!-- banner -->
+<section class="page-banner center relative overlay">
+    <div class="container z-1">
+        <h1 class="font-50 bold white">Our Products</h1>
+    </div>
+</section>
+
+<%- @modules.productsList %>
+
+<!-- our products -->
+<section class="our-products-section center pt-60">
+    <div class="container">
+        <div class="products-list d-flex space-between flex-wrap">
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+            <div class="product-box mb-30">
+                <a class="d-block h-100" href="" title="">
+                    <figure class="relative d-flex">
+                        <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
+                    </figure>
+                    <p class="font-18 bold black pt-15">Product Name</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

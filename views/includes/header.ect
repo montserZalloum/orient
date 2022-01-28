@@ -1,0 +1,17 @@
+<header class="header bg-white">
+  <div class="container">
+      <div class="d-flex space-between align-center">
+        <a class="d-flex align-center" href="#" title="">
+            <img src="<%- @conf.assets %>/images/logo.png" width="200" height="40">
+        </a>
+        <ul class="main-links m-0 p-0 d-flex w-60 align-center space-between">
+            <li><a class="text-hover <% if @pageName == 'home' : %>active<%end%>" href="/" title="">Home</a></li>
+            <li><a class="text-hover <% if @pageName == 'aboutus' : %>active<%end%>" href="/about" title="">About</a></li>
+            <li><a class="text-hover <% if @pageName == 'products' : %>active<%end%>" href="/products" title="">Products</a></li>
+            <li><a class="text-hover <% if @pageName == 'projects' : %>active<%end%>" href="/projects" title="">Projects</a></li>
+            <li><a class="text-hover <% if @pageName == 'contactus' : %>active<%end%>" href="/contact-us" title="">Contact Us</a></li>
+            <li><a class="text-hover font-ar" href="/ar" title="">عربي</a></li>
+        </ul>
+      </div>
+  </div>
+</header>

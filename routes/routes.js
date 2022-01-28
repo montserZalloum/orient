@@ -13,13 +13,31 @@ var basicAuthOptions = {
 var basicAuthObj = basicAuth(basicAuthOptions);
 
 /* Routes */
+router.get('/',require('../controllers/homepageController.js').getHomepage);
+
+// about us
+router.get('/about',require('../controllers/aboutuspageController.js').getAboutUspage);
+
+// contact us
+router.get('/contact-us',require('../controllers/contactuspageController.js').getContactUspage);
+router.post('/contact-us',require('../controllers/contactusController').sendMessage);
+
+// products
+router.get('/products',require('../controllers/productspageController').getProductspage);
+router.get('/product/:product',require('../controllers/productspageController').getProductpage);
+
+// projects
+router.get('/projects',require('../controllers/projectspageController').getProjectspage);
+
+
 // *******
 // admin
 // *******
-router.get('/',basicAuthObj ,require('../controllers/adminpageController.js').getAdminpage);
+router.get('/admin',basicAuthObj ,require('../controllers/adminpageController.js').getAdminpage);
 // about us
 router.get('/admin/about-us',basicAuthObj ,require('../controllers/aboutuspageController.js').getAdminAboutUspage);
 router.post('/admin/about-us',basicAuthObj ,require('../controllers/aboutusController.js').saveData);
+
 // resources
 router.get('/admin/resources',basicAuthObj ,require('../controllers/resourcespageController').getAdminResourcespage);
 router.post('/admin/resources',basicAuthObj ,require('../controllers/resourcesController.js').saveData);

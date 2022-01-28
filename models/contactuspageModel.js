@@ -1,6 +1,6 @@
 var async = require('async');
 
-exports.getHomepageContent = function(req,res,params,callback){
+exports.getContactUspageContent = function(req,res,params,callback){
     async.parallel({
         resources: function(cb) {
             require('../controllers/resourcesController').getResources(req,res,{},function(result){
@@ -9,7 +9,7 @@ exports.getHomepageContent = function(req,res,params,callback){
         },
     }, function(err, results) {
         if(err){
-            console.error("getHomepageContent err:",err)
+            console.error("getContactUspageContent err:",err)
         }
         return callback(err,results);
     });

@@ -1,0 +1,51 @@
+<% extend 'layout.ect' %>
+
+<% block 'page-title' : %> Contact Us <% end %>
+
+<% block 'body-class' : %>front contactuspage <% end %>
+
+<!-- banner -->
+<section class="page-banner center relative overlay">
+    <div class="container z-1">
+        <h1 class="font-50 bold white">Get In Touch</h1>
+    </div>
+</section>
+
+<section class="contactus-box pt-60">
+    <div class="container">
+        <div class="d-flex space-between">
+            <div class="w-50 pr-30">
+                <h2 class="font-26 bold mb-25">Address</h2>
+                <p class="font-18 pre-line mb-50">lorem Ipsum is simply dummy text
+                     of the printing and typesetting
+                      industry.</p>
+                <div class="mb-50">
+                    <h2 class="font-26 bold mb-25">Phone</h2>
+                    <a class="text-hover black font-18" href="tel:+962 79 9999999">+962 79 9999999</a>
+                </div>
+                <h2 class="font-26 bold mb-25">Email</h2>
+                <a class="text-hover black mb-50 font-18" href="mailto:info@orientabdeen.com">info@orientabdeen.com</a>
+            </div>
+            <div class="w-50">
+                <h2 class="font-26 bold mb-30 pb-5">Have Some Questions?</h2>
+                <form class="contact-form">
+                    <div class="form-group mb-20">
+                        <input id="name" class="form-control" placeholder="Enter Your Name">
+                    </div>
+                    <div class="form-group mb-20">
+                        <input id="email" type="email" oninvalid="this.setCustomValidity('This field is required')" required class="form-control" placeholder="Enter Your Email*">
+                    </div>
+                    <div class="form-group mb-20 d-flex">
+                        <textarea id="message" rows="5" required class="form-control" placeholder="Enter Your Message*"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input id="submit" type="submit" class="btn pointer" value="Submit">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="alert">Success!</div>

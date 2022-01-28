@@ -1,0 +1,165 @@
+.header {
+    box-shadow: 0px 3px 6px #00000029;
+    padding: 25px 0;
+}
+.main-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.banner-box:after {
+    content: '';
+    background: rgb(46 16 0 / 60%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.banner-box {
+    height: 700px;
+}
+.btn {
+    background: #ED7534;
+    border-radius: 10px;
+    color: #fff;
+    transition:.3s;
+    padding: 10px 64px;
+    font-size: 18px;
+    border: 0;
+}
+.section {
+    padding: 60px 0;
+}
+
+.project-box figure {
+    width: 386px;
+    height: 240px;
+}
+.product-box figure:after,.project-box figure:after{
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(46 16 0 / 60%);
+    opacity: 0;
+    transition:.3s;
+}
+.product-box:hover figure:after,.project-box:hover figure:after {
+    opacity: 1;
+}
+.our-projects-banner {
+    background-image: url(https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 56px 0;
+}
+.overlay {
+    position: relative;
+}
+.our-projects-banner:after, .overlay:after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.7;
+    position: absolute;
+}
+.overlay:after {
+    background:#182B4A;
+    opacity: .6;
+}
+.footer {
+    margin-top: 80px;
+    background: #182B4A;
+    padding: 40px 0 0 0;
+}
+.text-hover {
+    transition: .3s;
+}
+.text-hover:hover {
+    color:#ED7534;
+}
+.copy-rights {
+    background:#112443;
+    padding: 7px;
+    margin-top: 58px;
+}
+.main-links a {
+    position: relative;
+}
+.main-links a.active:after {
+    content: '';
+    width: 25px;
+    height: 3px;
+    background: #ED7534;
+    border-radius: 4px 4px 0 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -9px;
+}
+.page-banner {
+    background-image: url(https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 56px 0;
+}
+.product-box {
+    width: 24%;
+}
+.img-text img{
+    float: left;
+}
+.lang-ar .img-text img{
+    float: right;
+}
+.form-control {
+    height: 44px;
+    border: 1px solid #E3E3E3;
+    border-radius: 10px;
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 16px;
+    font-family: "Poppins";
+}
+.form-control::placeholder {
+    color:#6C6C6C;
+}
+.contact-form .form-control {
+    width: 79%;
+}
+textarea.form-control {
+    height: auto;
+}
+.alert {
+    position: fixed;
+    top: -100px;
+    z-index: 999999;
+    transition: .4s;
+    opacity: 0;
+    width: 200px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+.alert.active {
+    top: 30px;
+    opacity: 1;
+}
+.no-click {
+    pointer-events: none;
+}

@@ -1,0 +1,14 @@
+<% extend 'layout.ect' %>
+
+<% block 'page-title' : %> Our Projects <% end %>
+
+<% block 'body-class' : %>front projectspage <% end %>
+
+<!-- banner -->
+<section class="page-banner center relative overlay">
+    <div class="container z-1">
+        <h1 class="font-50 bold white">Our Projects</h1>
+    </div>
+</section>
+
+<%- @modules.projectsList %>

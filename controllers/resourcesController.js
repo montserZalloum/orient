@@ -83,3 +83,31 @@ exports.saveData = function(req,res){
   }
 
 }
+
+
+exports.getResources = function (req, res, params, callback) {
+  var result = {
+    json: null,
+    html: ""
+  };
+
+  try {
+    config.clear();
+    if (fs.existsSync(configsUrl + "/resources.json")) {
+      var fileDate = config("resources");
+      delete fileDate._merge;
+      
+
+      return callback(fileDate);
+
+
+    } else {
+      return callback(result);
+    }
+
+  } catch (exp) {
+    console.error("getResources exp::", exp);
+    //            require('./errorpageController.js').get500(req,res);
+    return callback(result);
+  }
+};

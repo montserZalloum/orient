@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="<%- @lang %>">
+  <head>
+    <% include 'includes/head.ect' %>
+    <% content 'meta' %>
+    <% content 'head' %>
+  </head>
+  <body class="<% content 'body-class' %> lang-<%- @lang %>">
+    <% include 'includes/header.ect' %>
+    
+    <!-- page sections -->
+    <% content %> 
+          
+    <% include 'includes/footer.ect' %>
+    
+    <% include 'includes/foot.ect' %>
+    <% content 'footer-scripts' %>
+  </body>
+</html>
