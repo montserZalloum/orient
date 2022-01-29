@@ -54,9 +54,9 @@ function add(type) {
         case 'aboutus':
             url = '/admin/about-us';
             data = {
-                'whoweare': $('#whoweare').val(),
-                'ourgoals': $('#ourgoals').val(),
-                'ourmission': $('#ourmission').val(),
+                'whoweare-en': $('#whoweare').val(),
+                'ourgoals-en': $('#ourgoals').val(),
+                'ourmission-en': $('#ourmission').val(),
                 'whoweare-ar': $('#whoweare-ar').val(),
                 'ourgoals-ar': $('#ourgoals-ar').val(),
                 'ourmission-ar': $('#ourmission-ar').val(),
@@ -65,14 +65,15 @@ function add(type) {
         case 'resources':
             url = '/admin/resources';
             data = {
-                'banner-text': $('#banner-text').val(),
+                'banner-text-en': $('#banner-text-en').val(),
                 'banner-text-ar': $('#banner-text-ar').val(),
-                'our-projects-text': $('#our-projects-text').val(),
+                'our-projects-text-en': $('#our-projects-text-en').val(),
                 'our-projects-text-ar': $('#our-projects-text-ar').val(),
-                'footer-text': $('#footer-text').val(),
+                'footer-text-en': $('#footer-text-en').val(),
                 'footer-text-ar': $('#footer-text-ar').val(),
                 'mobile': $('#mobile').val(),
-                'address': $('#address').val(),
+                'address-en': $('#address-en').val(),
+                'address-ar': $('#address-ar').val(),
                 'email': $('#email').val(),
                 'facebook': $('#facebook').val(),
                 'instagram': $('#instagram').val(),
@@ -84,23 +85,28 @@ function add(type) {
             url = '/add-product';
             data = {
                 'id': Math.random().toString(36).slice(2),
-                'name': $('#name').val(),
+                'name-en': $('#name').val(),
                 'name-ar': $('#name-ar').val(),
                 'image': $('#image').val(),
-                'description': $('#description').val(),
+                'description-en': $('#description').val(),
                 'description-ar': $('#description-ar').val(),
+                'full-description-en': $('#full-description').val(),
+                'full-description-ar': $('#full-description-ar').val(),
                 'exportable': $('#exportable').is(':checked')
             }
+            debugger;
             options.refresh = true
             break;
         case 'edit-product':
             url = '/edit-product';
             data = { 
                 'id': $('#edit-id').val(),
-                'name': $('#edit-name').val(),
+                'name-en': $('#edit-name').val(),
                 'name-ar': $('#edit-name-ar').val(),
-                'description': $('#edit-description').val(),
+                'description-en': $('#edit-description').val(),
                 'description-ar': $('#edit-description-ar').val(),
+                'full-description-en': $('#edit-full-description').val(),
+                'full-description-ar': $('#edit-full-description-ar').val(),
                 'exportable': $('#edit-exportable').is(':checked')
             }
             options.refresh = true
@@ -110,10 +116,10 @@ function add(type) {
             url = '/add-project';
             data = {
                 'id': Math.random().toString(36).slice(2),
-                'name': $('#name').val(),
+                'name-en': $('#name').val(),
                 'name-ar': $('#name-ar').val(),
                 'image': $('#image').val(),
-                'location': $('#location').val(),
+                'location-en': $('#location').val(),
                 'location-ar': $('#location-ar').val(),
                 'exportable': $('#exportable').is(':checked')
             }
@@ -123,9 +129,9 @@ function add(type) {
             url = '/edit-project';
             data = { 
                 'id': $('#edit-id').val(),
-                'name': $('#edit-name').val(),
+                'name-en': $('#edit-name').val(),
                 'name-ar': $('#edit-name-ar').val(),
-                'location': $('#edit-location').val(),
+                'location-en': $('#edit-location').val(),
                 'location-ar': $('#edit-location-ar').val(),
                 'exportable': $('#edit-exportable').is(':checked')
             }
@@ -189,21 +195,11 @@ function loading(status) {
 }
 
 function logout() {
-    $.ajax({
-        type: "GET",
-        url: "/",
-        async: false,
-        username: "logmeout",
-        password: "123456",
-        headers: { "Authorization": "Basic xxx" }
-    })
-    .done(function(){
-    })
-    .fail(function(){
-        window.location = "/";
+    var out = window.location.href.replace(/:\/\//, '://log:out@');
+    jQuery.get(out).error(function() {
+        window.location = '/';
     });
-    
-    return false;
+    window.location = '/';
 }
 
 $('[remove-id]').click(function() {
@@ -217,7 +213,6 @@ $('[remove-id]').click(function() {
             $('.modal [data-type="'+type+'"]').attr('remove',id)
             break;
     }
-    
 })
 
 $('.edit-btn').click(function () {
@@ -232,6 +227,8 @@ $('.edit-btn').click(function () {
             $(rootForm).find('#edit-name-ar').val($(elRoot).find('[prod-name-ar]').html())
             $(rootForm).find('#edit-description').val($(elRoot).find('[prod-desc]').html())
             $(rootForm).find('#edit-description-ar').val($(elRoot).find('[prod-desc-ar]').html())
+            $(rootForm).find('#edit-full-description').val($(elRoot).find('[prod-full-desc]').html())
+            $(rootForm).find('#edit-full-description-ar').val($(elRoot).find('[prod-full-desc-ar]').html())
             $(rootForm).find('[append-image] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
             $(rootForm).find('#edit-exportable').prop('checked',($(elRoot).find('[prod-exportable]').html() == 'true' ? true : false ))
             break;
@@ -243,6 +240,19 @@ $('.edit-btn').click(function () {
             $(rootForm).find('#edit-location-ar').val($(elRoot).find('[prod-location-ar]').html())
             $(rootForm).find('[append-image] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
             $(rootForm).find('#edit-exportable').prop('checked',($(elRoot).find('[prod-exportable]').html() == 'true' ? true : false ))
+            break;
+    }
+})
+$('.show-btn').click(function () {
+    id = $(this).attr('edit-id');
+    type = $(this).attr('data-type');
+    var rootForm = $('.modal [data-type="'+type+'"]')
+    var elRoot = $(this).parents('[root-id="'+id+'"]');
+    switch (type) {
+        case 'contactus':
+            $(rootForm).find('[user-name]').html($(elRoot).find('[user-name]').text())
+            $(rootForm).find('[user-email]').html($(elRoot).find('[user-email]').text())
+            $(rootForm).find('[user-message]').html($(elRoot).find('[user-message]').text())
             break;
     }
 })
@@ -266,9 +276,9 @@ $('[remove]').click(function(){
         data: {id: id}
     }).done(function (data) {
         showAlert(true)
-        setTimeout(function(){
+        // setTimeout(function(){
             location.reload()
-        },1000)
+        // },1000)
     }).fail(function (err) {
         showAlert(false)
     });

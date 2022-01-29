@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 const basicAuth = require('express-basic-auth');
-
+var errorpageController = require("../controllers/errorpageController.js");
 var basicAuthOptions = {
     users: {
         'admin': 'tw1234',
@@ -14,20 +14,23 @@ var basicAuthObj = basicAuth(basicAuthOptions);
 
 /* Routes */
 router.get('/',require('../controllers/homepageController.js').getHomepage);
+router.get('/:lang(en|ar)',require('../controllers/homepageController.js').getHomepage);
 
 // about us
-router.get('/about',require('../controllers/aboutuspageController.js').getAboutUspage);
+router.get('/:lang(en|ar)/about',require('../controllers/aboutuspageController.js').getAboutUspage);
 
 // contact us
-router.get('/contact-us',require('../controllers/contactuspageController.js').getContactUspage);
+router.get('/:lang(en|ar)/contact-us',require('../controllers/contactuspageController.js').getContactUspage);
 router.post('/contact-us',require('../controllers/contactusController').sendMessage);
 
-// products
-router.get('/products',require('../controllers/productspageController').getProductspage);
-router.get('/product/:product',require('../controllers/productspageController').getProductpage);
 
 // projects
-router.get('/projects',require('../controllers/projectspageController').getProjectspage);
+router.get('/:lang(en|ar)/projects',require('../controllers/projectspageController').getProjectspage);
+
+// products
+router.get('/:lang(en|ar)/products',require('../controllers/productspageController').getProductspage);
+router.get('/:lang(en|ar)/:product',require('../controllers/productspageController').getProductpage);
+
 
 
 // *******
@@ -37,7 +40,8 @@ router.get('/admin',basicAuthObj ,require('../controllers/adminpageController.js
 // about us
 router.get('/admin/about-us',basicAuthObj ,require('../controllers/aboutuspageController.js').getAdminAboutUspage);
 router.post('/admin/about-us',basicAuthObj ,require('../controllers/aboutusController.js').saveData);
-
+// contact us
+router.get('/admin/contact-us',require('../controllers/contactuspageController.js').getAdminContactUspage);
 // resources
 router.get('/admin/resources',basicAuthObj ,require('../controllers/resourcespageController').getAdminResourcespage);
 router.post('/admin/resources',basicAuthObj ,require('../controllers/resourcesController.js').saveData);
@@ -55,7 +59,9 @@ router.post('/remove-project',basicAuthObj ,require('../controllers/projectsCont
 router.post('/image-upload',basicAuthObj ,require('../controllers/adminController.js').uploadImage);
 
 
-
+//not found
+router.get('/:lang(en|ar)/*', errorpageController.get404);
+router.get('/*', errorpageController.get404);
 /* Routes */
 //router.get('/list', basicAuthObj, require('../controllers/usersController.js').getUsersListPage);
 //router.post('/resendsms', require('../controllers/usersController.js').getExistingUserCoupon);

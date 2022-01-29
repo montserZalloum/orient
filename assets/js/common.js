@@ -25,6 +25,17 @@ $(document).ready(function() {
         }
 
     });
+
+
+    $('.burger-icon').click(function(){
+        $('.mobile-menu').addClass('active')
+        $('body').addClass('overflow-hidden')
+    })
+    $('[close-mobile-nav]').click(function(){
+        $('.mobile-menu').removeClass('active')
+        $('body').removeClass('overflow-hidden')
+    })
+
 })
 
 function showAlert() {

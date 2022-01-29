@@ -84,10 +84,10 @@ exports.saveData = function(req,res){
       var id = req.body.id;
       var obj = {
           [id] : {
-          "name": req.body.name,
+          "name-en": req.body['name-en'],
           "name-ar": req.body['name-ar'],
           "image": req.body.image,
-          "location": req.body.location,
+          "location-en": req.body['location-en'],
           "location-ar": req.body['location-ar'],
           "exportable": req.body.exportable
         }
@@ -124,10 +124,10 @@ exports.editData = function(req,res){
       var id = req.body.id;
       
       fileDate[id] = {
-        "name": req.body.name,
+        "name-en": req.body['name-en'],
         "name-ar": req.body['name-ar'],
         "image": req.body['edit-image'],
-        "location": req.body.location,
+        "location-en": req.body['location-en'],
         "location-ar": req.body['location-ar'],
         "exportable": req.body.exportable
       }

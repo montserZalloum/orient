@@ -9,7 +9,7 @@
     width: 100%;
     height: 100%;
 }
-.banner-box:after {
+.banner-box-home:after {
     content: '';
     background: rgb(46 16 0 / 60%);
     height: 100%;
@@ -18,7 +18,7 @@
     left: 0;
     top: 0;
 }
-.banner-box {
+.banner-box-home {
     height: 700px;
 }
 .btn {
@@ -29,13 +29,16 @@
     padding: 10px 64px;
     font-size: 18px;
     border: 0;
+    min-width: 240px;
+}
+.banner-box-home .btn {
+    min-width: 260px;
 }
 .section {
     padding: 60px 0;
 }
 
 .project-box figure {
-    width: 386px;
     height: 240px;
 }
 .product-box figure:after,.project-box figure:after{
@@ -162,4 +165,145 @@ textarea.form-control {
 }
 .no-click {
     pointer-events: none;
+}
+.do {
+    display: block!important;
+}
+.mo {
+    display: none!important;
+}
+.errorpage .footer {
+    margin: 0!important;
+}
+@media (max-width: 767px) {
+    .do {
+        display: none!important;
+    }
+    .mo {
+        display: block!important;
+    }
+    .banner-box-home {
+        height: 600px;
+    }
+    .btn {
+        font-size: 15px;
+        padding: 10px 54px;
+        min-width: 240px;
+    }
+    .banner-box-home .btn {
+        min-width: 240px;
+    }
+    .section {
+        padding: 40px 0;
+    }
+    .product-box {
+        width: 48.5%;
+        margin-bottom: 20px;
+    }
+    .our-projects-banner {
+        padding: 28px 0;
+    }
+    .footer {
+        margin-top: 60px;
+        padding: 30px 0 0 0;
+    }
+    .copy-rights {
+        padding: 9px 2px;
+        margin-top: 30px;
+    }
+    .burger-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .header {
+        padding: 20px 0;
+    }
+    .mobile-menu {
+        position: fixed;
+        z-index: 10;
+        left: -100%;
+        width: 100%;
+        top: 0;
+        height: 100%;
+        transition: .3s;
+        visibility: hidden;
+        opacity: 0;
+    }
+    .mobile-menu .box {
+        background: #fff;
+        width: 90%;
+    }
+    .mobile-menu:before {
+        top: 0;
+        left: 0;
+        backdrop-filter: brightness(.5) blur(4px);
+        -webkit-backdrop-filter: brightness(.5) blur(4px);
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background: rgb(0 0 0 / 59%);
+        visibility: hidden;
+    }
+    .lang-ar .mobile-menu {
+        left: auto;
+        right: -100%;
+    }
+    .mobile-menu.active {
+        left: 0;
+        visibility:visible;
+        opacity: 1;
+    }
+    .mobile-menu.active:before {
+        visibility:visible;
+        opacity: 1;
+    }
+    .lang-ar .mobile-menu.active {
+        right: 0;
+    }
+    .mobile-menu a {
+        font-size: 17px;
+        padding:10px 25px;
+        position: relative;
+        color: #000000DE;
+    }
+    .mobile-menu a.active {
+        background:#ED7534;
+        color: #fff;
+    }
+    .mobile-menu a:after {
+        content: "";
+        right: 28px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width:6px;
+        height:12px;
+        background:url(../images/tick.svg) no-repeat;
+        position:absolute;
+    }
+    .lang-ar .mobile-menu a:after {
+        right: auto;
+        left: 28px;
+    }
+    .page-banner {
+        padding: 37px 0;
+    }
+    .aboutpage .who-we-are{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .flip-column-p {
+        flex-direction: column-reverse;
+    }
+    .aboutpage .goals-img  {
+        height: 240px;
+    }
+    .form-control {
+        width: 100%!important;
+    }
 }

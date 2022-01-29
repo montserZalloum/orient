@@ -83,11 +83,13 @@ exports.saveData = function(req,res){
       var id = req.body.id;
       var obj = {
           [id] : {
-          "name": req.body.name,
+          "name-en": req.body['name-en'],
           "name-ar": req.body['name-ar'],
           "image": req.body.image,
-          "description": req.body['description'],
+          "description-en": req.body['description-en'],
           "description-ar": req.body['description-ar'],
+          "full-description-en": req.body['full-description-en'],
+          "full-description-ar": req.body['full-description-ar'],
           "exportable": req.body.exportable
         }
       }
@@ -124,11 +126,13 @@ exports.editData = function(req,res){
       var id = req.body.id;
       
       fileDate[id] = {
-        "name": req.body.name,
+        "name-en": req.body['name-en'],
         "name-ar": req.body['name-ar'],
         "image": req.body['edit-image'],
-        "description": req.body.description,
+        "description-en": req.body['description-en'],
         "description-ar": req.body['description-ar'],
+        "full-description-en": req.body['full-description-en'],
+        "full-description-ar": req.body['full-description-ar'],
         "exportable": req.body.exportable
       }
 
@@ -186,9 +190,10 @@ exports.getProduct = function (req, res, params, callback) {
       var fileDate = config("products");
       delete fileDate._merge;
       
+      var obj = fileDate[req.params.product]
       res.render('partials/product.ect', {
         conf: req.conf,
-        data: fileDate,
+        data: obj,
       }, function (err, html) {
         if (err) {
             console.error(("Error Rendering ("+req.conf.reqUrl+") => partials/product.ect::"), err);

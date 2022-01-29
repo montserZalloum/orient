@@ -22,10 +22,12 @@
               <tbody type="offer">
                 <% for key,product of @data :%>
                     <tr root-id="<%- key %>">
-                        <th scope="row"><div prod-name class="one-line" style="max-width: 200px;"><%- product.name %></div></th>
+                        <th scope="row"><div prod-name class="one-line" style="max-width: 200px;"><%- product['name-en'] %></div></th>
                         <th scope="row" hidden><div prod-name-ar><%- product['name-ar'] %></div></th>
-                        <th scope="row"><div prod-desc class="one-line" style="max-width: 200px;"><%- product.description %></div></th>
+                        <th scope="row"><div prod-desc class="one-line" style="max-width: 200px;"><%- product['description-en'] %></div></th>
                         <th scope="row" hidden><div prod-desc-ar><%- product['description-ar'] %></div></th>
+                        <th scope="row" hidden><div prod-full-desc class="one-line" style="max-width: 200px;"><%- product['full-description-en'] %></div></th>
+                        <th scope="row" hidden><div prod-full-desc-ar><%- product['full-description-ar'] %></div></th>
                         <th scope="row"><img prod-img style="width: 100px;" src="/uploads/<%- product.image %>"></th>
                         <th scope="row" prod-exportable><%- product.exportable %></th>
                         <td>
@@ -85,6 +87,18 @@
               <label class="col-sm-3 form-control-label">Description (ar)</label>
               <div class="col-sm-9">
                 <textarea rows="5" class="form-control" required id="description-ar"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Full Description</label>
+              <div class="col-sm-9">
+                <textarea rows="5" class="form-control" required id="full-description"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Full Description (ar)</label>
+              <div class="col-sm-9">
+                <textarea rows="5" class="form-control" required id="full-description-ar"></textarea>
               </div>
             </div>
             <div class="form-group row">
@@ -167,6 +181,18 @@
               <label class="col-sm-3 form-control-label">Description (ar)</label>
               <div class="col-sm-9">
                 <textarea rows="8" class="form-control" required id="edit-description-ar"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Full Description</label>
+              <div class="col-sm-9">
+                <textarea rows="8" class="form-control" required id="edit-full-description"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Full Description (ar)</label>
+              <div class="col-sm-9">
+                <textarea rows="8" class="form-control" required id="edit-full-description-ar"></textarea>
               </div>
             </div>
             <div class="form-group row">

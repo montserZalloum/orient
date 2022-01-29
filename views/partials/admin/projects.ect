@@ -22,9 +22,9 @@
               <tbody type="offer">
                 <% for key,project of @data :%>
                     <tr root-id="<%- key %>">
-                        <th scope="row" ><div prod-name class="one-line" style="max-width: 200px;"><%- project.name %></div></th>
+                        <th scope="row" ><div prod-name class="one-line" style="max-width: 200px;"><%- project['name-en'] %></div></th>
                         <th scope="row" hidden><div prod-name-ar><%- project['name-ar'] %></div></th>
-                        <th scope="row"><div prod-location class="one-line" style="max-width: 200px;"><%- project.location %></div></th>
+                        <th scope="row"><div prod-location class="one-line" style="max-width: 200px;"><%- project['location-en'] %></div></th>
                         <th scope="row" hidden><div prod-location-ar><%- project['location-ar'] %></div></th>
                         <th scope="row"><img prod-img style="width: 100px;" src="/uploads/<%- project.image %>"></th>
                         <th scope="row" prod-exportable><%- project.exportable %></th>

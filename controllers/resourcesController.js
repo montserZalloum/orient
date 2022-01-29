@@ -54,17 +54,19 @@ exports.saveData = function(req,res){
       var fileDate = config("resources");
       delete fileDate._merge;
 
-      fileDate['banner-text'] = req.body['banner-text']
+      fileDate['banner-text-en'] = req.body['banner-text-en']
       fileDate['banner-text-ar'] = req.body['banner-text-ar']
       
-      fileDate['our-projects-text'] = req.body['our-projects-text']
+      fileDate['our-projects-text-en'] = req.body['our-projects-text-en']
       fileDate['our-projects-text-ar'] = req.body['our-projects-text-ar']
       
-      fileDate['footer-text'] = req.body['footer-text']
+      fileDate['footer-text-en'] = req.body['footer-text-en']
       fileDate['footer-text-ar'] = req.body['footer-text-ar']
+      
+      fileDate['address-en'] = req.body['address-en']
+      fileDate['address-ar'] = req.body['address-ar']
 
       fileDate['mobile'] = req.body['mobile']
-      fileDate['address'] = req.body['address']
       fileDate['email'] = req.body['email']
       fileDate['facebook'] = req.body['facebook']
       fileDate['instagram'] = req.body['instagram']

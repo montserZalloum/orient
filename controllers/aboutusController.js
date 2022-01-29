@@ -68,9 +68,10 @@ exports.saveData = function(req,res){
       delete fileDate._merge;
 
 
-      fileDate.whoweare = req.body.whoweare
-      fileDate.ourgoals = req.body.ourgoals
-      fileDate.ourmission = req.body.ourmission
+      fileDate['whoweare-en'] = req.body['whoweare-en']
+      fileDate['ourgoals-en'] = req.body['ourgoals-en']
+      fileDate['ourmission-en'] = req.body['ourmission-en']
+
       fileDate['whoweare-ar'] = req.body['whoweare-ar']
       fileDate['ourgoals-ar'] = req.body['ourgoals-ar']
       fileDate['ourmission-ar'] = req.body['ourmission-ar']

@@ -1,18 +1,19 @@
 <% extend 'layout.ect' %>
 
-<% block 'page-title' : %> Home <% end %>
+<% block 'page-title' : %> <%- @t('home_title',@lang) %> <% end %>
 
 <% block 'body-class' : %>front homepage <% end %>
 
-<section class="banner-box relative">
-    <img class="main-img" src="https://i.pinimg.com/originals/01/5a/17/015a1757e67f766a12621af543b3a5fd.jpg">
+<section class="banner-box-home relative">
+    <img class="main-img object-fit" src="https://i.pinimg.com/originals/01/5a/17/015a1757e67f766a12621af543b3a5fd.jpg">
     <div class="container z-1 d-flex align-center h-100 justify-center">
-        <div class="">
-            <h1 class="bold white pre-line center font-40">No.1 Manufacture of 
+        <div class="p-side-p">
+            <h1 class="bold white pre-line center font-40 font-20-p">No.1 Manufacture of 
                 Agricultural, Construction 
                 equipment and Machinery</h1>
-            <div class="center mt-40">
-                <a class="btn" href="/products" title="">View Products</a>
+            <div class="d-flex justify-center mt-40 flex-wrap-p">
+                <a class="btn center mb-10-p" href="/products" title="<%- @t('view_products',@lang) %>"><%- @t('view_products',@lang) %></a>
+                <a class="btn center ml-10 m-0-p" href="/contact-us" title=""><%- @t('contact_us',@lang) %></a>
             </div>
         </div>
     </div>
@@ -23,16 +24,16 @@
 <% include 'partials/who-we-are.ect' %>
 
 <!-- our products -->
-<section class="our-products-section center pb-60">
-    <div class="container">
-        <h2 class="font-26 bold">Our Products</h2>
+<section class="our-products-section center pb-60 pb-50-p">
+    <div class="container p-side-p">
+        <h2 class="font-26 bold"><%- @t('our_products',@lang) %></h2>
         <div class="pt-20 products-list d-flex space-between flex-wrap">
             <div class="product-box mb-30">
                 <a class="d-block h-100" href="" title="">
                     <figure class="relative d-flex">
                         <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
                     </figure>
-                    <p class="font-18 bold black pt-15">Product Name</p>
+                    <p class="font-18 bold black pt-15 font-15-p bold-p">Product Name</p>
                 </a>
             </div>
             <div class="product-box mb-30">
@@ -40,7 +41,7 @@
                     <figure class="relative d-flex">
                         <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
                     </figure>
-                    <p class="font-18 bold black pt-15">Product Name</p>
+                    <p class="font-18 bold black pt-15 font-15-p bold-p">Product Name</p>
                 </a>
             </div>
             <div class="product-box mb-30">
@@ -48,7 +49,7 @@
                     <figure class="relative d-flex">
                         <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
                     </figure>
-                    <p class="font-18 bold black pt-15">Product Name</p>
+                    <p class="font-18 bold black pt-15 font-15-p bold-p">Product Name</p>
                 </a>
             </div>
             <div class="product-box mb-30">
@@ -56,62 +57,63 @@
                     <figure class="relative d-flex">
                         <img class="object-fit w-100 h-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="285" height="200" alt="">
                     </figure>
-                    <p class="font-18 bold black pt-15">Product Name</p>
+                    <p class="font-18 bold black pt-15 font-15-p bold-p">Product Name</p>
                 </a>
             </div>
         </div>
         <div class="d-flex justify-center mt-10">
-            <a class="btn" href="/products" title="">View All Products</a>
+            <a class="btn" href="/products" title=""><%- @t('all_products',@lang) %></a>
         </div>
     </div>
 </section>
 
 <!-- projects banner -->
 <section class="our-projects-banner center relative">
-    <div class="container z-1">
-        <h2 class="uppercase font-40 bold blue pb-20">OUR PROJECTS</h2>
-        <p class="blue font-40 pre-line">A MESSAGE ABOUT THE PROJECTS AND 
+    <div class="container z-1 p-side-p">
+        <h2 class="uppercase font-40 bold blue pb-20 font-26-p pb-10-p"><%- @t('our_projects',@lang) %></h2>
+        <p class="blue font-40 pre-line font-18-p">A MESSAGE ABOUT THE PROJECTS AND 
             THE QUALITY OF WORK DONE IN THEM</p>
     </div>
 </section>
 
 <!-- projects list -->
 <div class="project-list-box mt-30">
-    <div class="container">
+    <div class="container p-side-p">
         <div class="project-list d-flex space-between flex-wrap">
-            <div class="project-box">
+            <div class="project-box w-32 w-100-p mb-20-p">
                 <a class="d-block" href="#" title="">
-                    <figure class="relative">
-                        <img class="object-fit" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="386" height="240" alt="">
+                    <figure class="relative w-100">
+                        <img class="object-fit w-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="auto" height="240" alt="">
                     </figure>
-                    <div class="d-flex space-between align-center pt-20 flex-wrap">
-                        <p class="font-18 bold black">Project Name</p>
-                        <p class="font-18 black">Project Name</p>
+                    <div class="d-flex space-between align-center pt-20 pt-10-p flex-wrap">
+                        <p class="font-18 bold black font-15-p w-68 one-line">Project Name</p>
+                        <p class="font-18 black font-15-p">Project Name</p>
                     </div>
                 </a>
             </div>
-            <div class="project-box">
+            <div class="project-box w-32 w-100-p mb-20-p">
                 <a class="d-block" href="#" title="">
-                    <figure class="relative">
-                        <img class="object-fit" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="386" height="240" alt="">
+                    <figure class="relative w-100">
+                        <img class="object-fit w-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="auto" height="240" alt="">
                     </figure>
-                    <div class="d-flex space-between align-center pt-20 flex-wrap">
-                        <p class="font-18 bold black">Project Name</p>
-                        <p class="font-18 black">Project Name</p>
+                    <div class="d-flex space-between align-center pt-20 pt-10-p flex-wrap">
+                        <p class="font-18 bold black font-15-p w-68 one-line">Project Name</p>
+                        <p class="font-18 black font-15-p">Project Name</p>
                     </div>
                 </a>
             </div>
-            <div class="project-box">
+            <div class="project-box w-32 w-100-p mb-20-p">
                 <a class="d-block" href="#" title="">
-                    <figure class="relative">
-                        <img class="object-fit" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="386" height="240" alt="">
+                    <figure class="relative w-100">
+                        <img class="object-fit w-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="auto" height="240" alt="">
                     </figure>
-                    <div class="d-flex space-between align-center pt-20 flex-wrap">
-                        <p class="font-18 bold black">Project Name</p>
-                        <p class="font-18 black">Project Name</p>
+                    <div class="d-flex space-between align-center pt-20 pt-10-p flex-wrap">
+                        <p class="font-18 bold black font-15-p w-68 one-line">Project Name</p>
+                        <p class="font-18 black font-15-p">Project Name</p>
                     </div>
                 </a>
             </div>
+            
         </div>
     </div>
 </div>

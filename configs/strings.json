@@ -1,0 +1,114 @@
+{
+	"switchLang": {
+		"en": "عربي",
+		"ar": "English"
+	},
+	"view_products": {
+		"en": "View Products",
+		"ar": "English"
+	},
+	"contact_us": {
+		"en": "Contact Us",
+		"ar": "English"
+	},
+	"our_products": {
+		"en": "Our Products",
+		"ar": "English"
+	},
+	"all_products": {
+		"en": "View All Products",
+		"ar": "English"
+	},
+	"our_projects": {
+		"en": "Our Projects",
+		"ar": "English"
+	},
+	"site_links": {
+		"en": "Sitelinks",
+		"ar": "English"
+	},
+	"about_link": {
+		"en": "About",
+		"ar": "English"
+	},
+	"products_link": {
+		"en": "Products",
+		"ar": "English"
+	},
+	"projects_link": {
+		"en": "Projects",
+		"ar": "English"
+	},
+	"contact_link": {
+		"en": "Contact Us",
+		"ar": "English"
+	},
+	"home_title": {
+		"en": "Home",
+		"ar": "English"
+	},
+	"contact_title": {
+		"en": "Contact Us",
+		"ar": "English"
+	},
+	"about_title": {
+		"en": "About Us",
+		"ar": "English"
+	},
+	"products_title": {
+		"en": "Products",
+		"ar": "English"
+	},
+	"our_goals": {
+		"en": "Our Goals",
+		"ar": "English"
+	},
+	"our_mission": {
+		"en": "Our Mission",
+		"ar": "English"
+	},
+	"get_in_touch": {
+		"en": "Get In Touch",
+		"ar": "English"
+	},
+	"address": {
+		"en": "Address",
+		"ar": "English"
+	},
+	"phone": {
+		"en": "Phone",
+		"ar": "English"
+	},
+	"email": {
+		"en": "Email",
+		"ar": "English"
+	},
+	"have_question": {
+		"en": "Have Some Questions?",
+		"ar": "English"
+	},
+	"enter_name": {
+		"en": "Enter Your Name",
+		"ar": "English"
+	},
+	"enter_email": {
+		"en": "Enter Your Email",
+		"ar": "English"
+	},
+	"enter_message": {
+		"en": "Enter Your Message",
+		"ar": "English"
+	},
+	"submit": {
+		"en": "Submit",
+		"ar": "English"
+	},
+	"copy_rights": {
+		"en": "All Rights Reserved",
+		"ar": "English"
+	},
+	"who_we_are": {
+		"en": "Who We Are",
+		"ar": "English"
+	}
+}

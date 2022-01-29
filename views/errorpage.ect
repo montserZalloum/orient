@@ -1,0 +1,18 @@
+<% extend 'layout.ect' %>
+
+<% block 'page-title' : %> Error  <% end %>
+
+<% block 'body-class' : %>front errorpage <% end %>
+
+
+<section class="banner-box-home relative">
+    <img class="main-img object-fit" src="https://i.pinimg.com/originals/01/5a/17/015a1757e67f766a12621af543b3a5fd.jpg">
+    <div class="container z-1 d-flex align-center h-100 justify-center">
+        <div class="p-side-p">
+            <h1 class="bold white pre-line center font-40 font-20-p">Error <%- @statusCode %></h1>
+            <div class="d-flex justify-center mt-40 flex-wrap-p">
+                <a class="btn center mb-10-p" href="/<%- @lang%>" title="">Back To Home Page</a>
+            </div>
+        </div>
+    </div>
+</section>

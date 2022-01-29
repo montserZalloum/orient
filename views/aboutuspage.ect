@@ -1,31 +1,31 @@
 <% extend 'layout.ect' %>
 
-<% block 'page-title' : %> About Us <% end %>
+<% block 'page-title' : %> <%- @t('about_title',@lang) %> <% end %>
 
 <% block 'body-class' : %>front aboutpage <% end %>
 
 <!-- banner -->
 <section class="page-banner center relative overlay">
     <div class="container z-1">
-        <h1 class="font-50 bold white">About Us</h1>
+        <h1 class="font-50 bold white font-30-p"><%- @t('about_title',@lang) %></h1>
     </div>
 </section>
 
 <% include 'partials/who-we-are.ect' %>
 
-<section class="pt-20 our-vision">
-    <div class="container">
-        <div class="d-flex align-center space-between">
-            <div class="w-48">
-                <h2 class="font-26 black bold mb-20">Our Goals</h2>
+<section class="pt-20 pt-0-p our-vision">
+    <div class="container center-p">
+        <div class="d-flex align-center space-between flex-wrap-p flip-column-p mb-30-p">
+            <div class="w-48 w-100-p p-side-p">
+                <h2 class="font-26 black bold mb-20"><%- @t('our_goals',@lang) %></h2>
                 <p class="font-18">The story began in 1954, with the establishment of a cooperative for the manufacture of agricultural equipment, tanks and other iron parts. And in order to keep pace with the development and the desire to modernize and increase the products and the entry of new generations, the Abdeen Foundation was established </p>
             </div>
-            <img class="goals-img" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="570" height="320">
+            <img class="goals-img w-100-p mb-30-p" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="570" height="320">
         </div>
-        <div class="d-flex align-center space-between mt-40">
-            <img class="goals-img" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="570" height="320">
-            <div class="w-48">
-                <h2 class="font-26 black bold mb-20">Our Mission</h2>
+        <div class="d-flex align-center space-between mt-40 mt-0-p flex-wrap-p">
+            <img class="goals-img w-100-p mb-30-p" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="570" height="320">
+            <div class="w-48 w-100-p p-side-p">
+                <h2 class="font-26 black bold mb-20"><%- @t('our_mission',@lang) %></h2>
                 <p class="font-18">The story began in 1954, with the establishment of a cooperative for the manufacture of agricultural equipment, tanks and other iron parts. And in order to keep pace with the development and the desire to modernize and increase the products and the entry of new generations, the Abdeen Foundation was established </p>
             </div>
         </div>

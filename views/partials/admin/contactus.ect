@@ -1,0 +1,71 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <h3 class="h4">Users Questions</h3>
+          </div>
+          <div class="card-body">
+            <!-- <small>* You have 8 products only on home page</small> -->
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Messgage</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody type="offer">
+                <% for key,project of @data :%>
+                    <tr root-id="<%- key %>">
+                        <th scope="row" ><div user-name class="one-line" style="max-width: 200px;"><%- project.name %></div></th>
+                        <th scope="row" user-email><%- project.email %></th>
+                        <th scope="row" user-message><div style="max-width: 200px;" class="one-line"><%- project.message %></div></th>
+                        <td>
+                            <button class="btn btn-info show-btn" data-toggle="modal" data-target="#show" data-type="contactus" edit-id="<%- key %>">Show</button>
+                        </td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+<div id="show" tabindex="-1" role="dialog" class="modal fade text-left" >
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="exampleModalLabel" class="modal-title">Full Details</h4>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+        </div>
+          <div class="modal-body" data-type="contactus">
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Name</label>
+              <div class="col-sm-9">
+                <p user-name></p>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Email</label>
+              <div class="col-sm-9">
+                <p user-email></p>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Message</label>
+              <div class="col-sm-9">
+                <p user-message></p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>

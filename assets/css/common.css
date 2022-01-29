@@ -795,6 +795,15 @@ a:hover {
     .mb-15-p {
         margin-bottom: 15px;
     }
+    .mb-20-p {
+        margin-bottom: 20px;
+    }
+    .mb-30-p {
+        margin-bottom: 30px;
+    }
+    .mb-40-p {
+        margin-bottom: 40px;
+    }
     .p-side-0-p {
         padding-left: 0!important;
         padding-right: 0!important;
@@ -811,9 +820,18 @@ a:hover {
     .pt-20-p {
         padding-top: 20px;
     }
+    .pt-30-p {
+        padding-top: 30px;
+    }
     .p-side-12-p {
         padding-left: 12px;
         padding-right: 12px;
+    }
+    .font-14-p {
+        font-size: 14px;
+    }
+    .font-15-p {
+        font-size: 15px;
     }
     .font-16-p {
         font-size: 16px;
@@ -821,8 +839,17 @@ a:hover {
     .font-18-p {
         font-size: 18px;
     }
+    .font-20-p {
+        font-size: 20px;
+    }
+    .font-26-p {
+        font-size: 26px;
+    }
     .font-28-p {
         font-size: 28px;
+    }
+    .font-30-p {
+        font-size: 30px;
     }
     .container-fluid {
         padding: 0 15px;
@@ -833,5 +860,25 @@ a:hover {
     .p-side-15-p {
         padding-left: 15px;
         padding-right: 15px;
+    }
+    .p-side-p {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .bold-p {
+        font-family: "Poppins Bold";
+    }
+    .lang-ar .bold-p{
+        font-family: 'Tajawal Bold';
+    }
+    .pb-50-p {
+        padding-bottom: 50px;
+    }
+    .pb-60-p {
+        padding-bottom: 60px;
+    }
+    .m-side-p {
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }

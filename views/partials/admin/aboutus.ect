@@ -11,14 +11,9 @@
                 <div class="form-group row">
                     <label class="col-sm-2 form-control-label">Who We Are</label>
                     <div class="col-sm-8">
-                        <textarea rows="8" class="form-control" required id="whoweare"><%- @data.whoweare %></textarea>
+                        <textarea rows="8" class="form-control" required id="whoweare"><%- @data['whoweare-en'] %></textarea>
                     </div>
-                    <div class="col-sm-2">
-                        <input required-img type="file" class="form-control-file" accept="image/*" id="whoweare-image" file>
-                        <div class="" append-image="whoweare-image">
-                            <img class="w-100 mt-2" src="/uploads/<%- @data['whoweare-image'] %>">
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 form-control-label">Who We Are (ar)</label>
@@ -29,7 +24,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 form-control-label">Our Goals</label>
                     <div class="col-sm-8">
-                        <textarea rows="8" class="form-control" required id="ourgoals"><%- @data.ourgoals %></textarea>
+                        <textarea rows="8" class="form-control" required id="ourgoals"><%- @data['ourgoals-en'] %></textarea>
                     </div>
                     <div class="col-sm-2">
                         <input required-img type="file" class="form-control-file" accept="image/*" id="ourgoals-image" file>
@@ -47,7 +42,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 form-control-label">Our Mission</label>
                     <div class="col-sm-8">
-                        <textarea rows="8" class="form-control" required id="ourmission"><%- @data.ourmission %></textarea>
+                        <textarea rows="8" class="form-control" required id="ourmission"><%- @data['ourmission-en'] %></textarea>
                     </div>
                     <div class="col-sm-2">
                         <input required-img type="file" class="form-control-file" accept="image/*" id="ourmission-image" file>

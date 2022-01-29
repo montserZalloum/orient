@@ -18,40 +18,6 @@ let storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 
-exports.getTest = function (req, res, params, callback) {
-  var result = {
-    json: null,
-    html: "",
-    delivered: 0,
-  };
-
-  try {
-    config.clear();
-    let student = {
-      name: "Mike",
-      age: 23,
-      gender: "Male",
-      department: "English",
-      car: "Honda",
-    };
-    if (fs.existsSync(configsUrl + "/projects.json")) {
-      var fileDate = config("projects");
-      delete fileDate._merge;
-      fileDate[Object.keys({ student })[0]] = student;
-      fileDate = JSON.stringify(fileDate);
-
-      fs.writeFileSync(configsUrl + "/projects.json", fileDate);
-    }
-
-    return callback(result);
-  } catch (exp) {
-    console.error("getCitiesList exp::".red, exp);
-    //            require('./errorpageController.js').get500(req,res);
-    return callback(result);
-  }
-};
-
-
 exports.uploadImage = function(req,res) {
   try {
     upload.single(req.query.id)(req,res,function(uploadErr) {

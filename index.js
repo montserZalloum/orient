@@ -47,7 +47,17 @@ app.use('/public', express.static('public'));
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    
     req.conf = {};
+    req.conf.strings = config('strings');
+    req.conf.translate = function (str, lang) {
+        if (!lang) {
+            //                console.log('!lang');
+            lang = req.conf.lang;
+        }
+        lang = lang.toLowerCase();
+        return req.conf.strings[str] && req.conf.strings[str][lang] ? req.conf.strings[str][lang].trim() : str;
+    };
     req.conf.assetsVersion = '?v=' + config('services').assetsVersion || '';
     req.conf.assets = process.env.ASSETS || '/assets';
     next();

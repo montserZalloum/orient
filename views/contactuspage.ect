@@ -1,45 +1,45 @@
 <% extend 'layout.ect' %>
 
-<% block 'page-title' : %> Contact Us <% end %>
+<% block 'page-title' : %><%- @t('contact_title',@lang) %><% end %>
 
 <% block 'body-class' : %>front contactuspage <% end %>
 
 <!-- banner -->
 <section class="page-banner center relative overlay">
     <div class="container z-1">
-        <h1 class="font-50 bold white">Get In Touch</h1>
+        <h1 class="font-50 bold white font-30-p"><%- @t('get_in_touch',@lang) %></h1>
     </div>
 </section>
 
-<section class="contactus-box pt-60">
-    <div class="container">
-        <div class="d-flex space-between">
-            <div class="w-50 pr-30">
-                <h2 class="font-26 bold mb-25">Address</h2>
-                <p class="font-18 pre-line mb-50">lorem Ipsum is simply dummy text
+<section class="contactus-box pt-60 pt-30-p">
+    <div class="container p-side-p">
+        <div class="d-flex space-between flex-wrap-p">
+            <div class="w-50 pr-30 w-100-p p-side-0-p pb-60-p">
+                <h2 class="font-26 bold mb-25"><%- @t('address',@lang) %></h2>
+                <p class="font-18 pre-line mb-50 mb-40-p">lorem Ipsum is simply dummy text
                      of the printing and typesetting
                       industry.</p>
-                <div class="mb-50">
-                    <h2 class="font-26 bold mb-25">Phone</h2>
+                <div class="mb-50 mb-40-p">
+                    <h2 class="font-26 bold mb-25"><%- @t('phone',@lang) %></h2>
                     <a class="text-hover black font-18" href="tel:+962 79 9999999">+962 79 9999999</a>
                 </div>
-                <h2 class="font-26 bold mb-25">Email</h2>
-                <a class="text-hover black mb-50 font-18" href="mailto:info@orientabdeen.com">info@orientabdeen.com</a>
+                <h2 class="font-26 bold mb-25"><%- @t('email',@lang) %></h2>
+                <a class="text-hover black mb-50 font-18 mb-40-p" href="mailto:info@orientabdeen.com">info@orientabdeen.com</a>
             </div>
-            <div class="w-50">
-                <h2 class="font-26 bold mb-30 pb-5">Have Some Questions?</h2>
+            <div class="w-50 w-100-p">
+                <h2 class="font-26 bold mb-30 pb-5"><%- @t('have_question',@lang) %></h2>
                 <form class="contact-form">
                     <div class="form-group mb-20">
-                        <input id="name" class="form-control" placeholder="Enter Your Name">
+                        <input id="name" class="form-control" placeholder="<%- @t('enter_name',@lang) %>">
                     </div>
                     <div class="form-group mb-20">
-                        <input id="email" type="email" oninvalid="this.setCustomValidity('This field is required')" required class="form-control" placeholder="Enter Your Email*">
+                        <input id="email" type="email" oninvalid="this.setCustomValidity('This field is required')" required class="form-control" placeholder="<%- @t('enter_email',@lang) %>*">
                     </div>
                     <div class="form-group mb-20 d-flex">
-                        <textarea id="message" rows="5" required class="form-control" placeholder="Enter Your Message*"></textarea>
+                        <textarea id="message" rows="5" required class="form-control" placeholder="<%- @t('enter_message',@lang) %>*"></textarea>
                     </div>
                     <div class="form-group">
-                        <input id="submit" type="submit" class="btn pointer" value="Submit">
+                        <input id="submit" type="submit" class="btn pointer" value="<%- @t('submit',@lang) %>">
                     </div>
 
                 </form>
