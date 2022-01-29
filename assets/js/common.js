@@ -18,8 +18,10 @@ $(document).ready(function() {
                     mobile: mobile
                 }
             }).done(function (data) {
-                $('#submit').removeClass('no-click')
                 showAlert()
+
+                sendMail()
+
             }).fail(function (err) {
                 // showAlert(false)
             });
@@ -48,4 +50,42 @@ function showAlert() {
     setTimeout(function () {
         $('.alert').removeClass('active');
     }, 2500)
+}
+
+function sendMail(){
+    //update this with your $form selector
+    var data = {
+        "access_token": "93xao2sq63apgnlo0y9gcgrb"
+    };
+
+    function onSuccess() {
+        // remove this to avoid redirect
+        // window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+    }
+
+    function onError(error) {
+        // remove this to avoid redirect
+        // window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+    }
+
+    // var sendButton = $("#" + form_id + " [name='send']");
+
+    function send() {
+        // sendButton.val('Sending…');
+        // sendButton.prop('disabled',true);
+
+        var subject = 'New Question';
+        var message = $('#message').val();
+        data['subject'] = subject;
+        data['text'] = message;
+
+        $.post('https://postmail.invotes.com/send',
+            data,
+            onSuccess
+        ).fail(onError);
+
+        return false;
+    }
+
+    send()
 }

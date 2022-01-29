@@ -37,13 +37,17 @@ exports.uploadImage = function(req,res) {
 //   service: 'gmail',
 //   auth: {
 //     user: 'zmontsaer@gmail.com',
-//     'pass': 'Az0120188'
-//   }
+//     'pass': 'mpdffyabwyatxflp'
+//   },
+//   secure: false,
+//   requireTLS: true,
+//   port: 587,
+//   host: 'smtp.gmail.com',
 // })
 
 // var mailOptions = {
 //   from: 'zmontsaer@gmail.com',
-//   to : 'montaser.zalloum@arabiaweather.com',
+//   to : 'zmontsaer@gmail.com',
 //   subject: 'Someone sent you an message',
 //   text: 'Hello World!'
 // }

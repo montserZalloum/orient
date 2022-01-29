@@ -1,8 +1,8 @@
 <header class="header bg-white">
   <div class="container">
       <div class="d-flex space-between align-center justify-center-p relative m-side-p">
-        <a class="d-flex align-center" href="/<%- @lang %>" title="<%- @t('home_title',@lang) %>">
-            <img src="<%- @conf.assets %>/images/logo.png" width="200" height="40">
+        <a class="d-flex align-center logo" href="/<%- @lang %>" title="<%- @t('home_title',@lang) %>">
+            <img src="<%- @conf.assets %>/images/logo.png" width="256" height="51">
         </a>
         <div class="do w-60">
           <ul class="main-links m-0 p-0 d-flex align-center space-between" >
@@ -19,7 +19,7 @@
           </ul>
         </div>
         <!-- mobile nav -->
-        <img class="mo burger-icon" mobile-nav src="<%- @conf.assets %>/images/logo.png" width="30" height="20">
+        <img class="mo burger-icon" mobile-nav src="<%- @conf.assets %>/images/menu.png" width="30" height="20">
       </div>
   </div>
 </header>
@@ -27,12 +27,12 @@
 
 <nav class="mobile-menu mo">
   <div class="box h-100 z-1 pt-30">
-    <img class="close-menu ml-25" close-mobile-nav src="<%- @conf.assets %>/images/logo.png" width="21" height="21">
+    <img class="close-menu ml-25 mb-40-p" close-mobile-nav src="<%- @conf.assets %>/images/close.png" width="21" height="21">
     <a class="d-block <% if @pageName == 'home' : %>active<%end%>" href="/<%- @lang %>" title="<%- @t('home_title',@lang) %>"><%- @t('home_title',@lang) %></a>
     <a class="d-block <% if @pageName == 'aboutus' : %>active<%end%>" href="/<%- @lang %>/about" title="<%- @t('about_link',@lang) %>"><%- @t('about_link',@lang) %></a>
     <a class="d-block <% if @pageName == 'products' : %>active<%end%>" href="/<%- @lang %>/products" title="<%- @t('products_link',@lang) %>"><%- @t('products_link',@lang) %></a>
     <a class="d-block <% if @pageName == 'projects' : %>active<%end%>" href="/<%- @lang %>/projects" title="<%- @t('projects_link',@lang) %>"><%- @t('projects_link',@lang) %></a>
     <a class="d-block <% if @pageName == 'contactus' : %>active<%end%>" href="/<%- @lang %>/contact-us" title="<%- @t('contact_link',@lang) %>"><%- @t('contact_link',@lang) %></a>
-    <a class="d-block font-<%- langSwitch %>" href="/<%- langSwitch %>" title=""><%- @t('switchLang',@lang) %></a>
+    <a switch-lang class="d-block font-<%- langSwitch %>" href="/<%- langSwitch %>" title=""><%- @t('switchLang',@lang) %></a>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 .header {
     box-shadow: 0px 3px 6px #00000029;
-    padding: 25px 0;
+    padding: 20px 0;
 }
 .main-img {
     position: absolute;
@@ -63,6 +63,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding: 56px 0;
+    background-position: center;
 }
 .overlay {
     position: relative;
@@ -127,6 +128,13 @@
 .lang-ar .img-text img{
     float: right;
 }
+.img-text:after {
+    content: '';
+    clear: both;
+    min-width: 1px;
+    min-height: 1px;
+    display: block;
+}
 .form-control {
     height: 44px;
     border: 1px solid #E3E3E3;
@@ -178,6 +186,13 @@ textarea.form-control {
 .errorpage .footer {
     margin: 0!important;
 }
+.footer-logo img{
+    width: 204px;
+    height: 40px;
+}
+.products-list , .project-list{
+    gap: 16px;
+}
 @media (max-width: 767px) {
     .do {
         display: none!important;
@@ -220,6 +235,10 @@ textarea.form-control {
         top: 0;
         bottom: 0;
         margin: auto;
+    }
+    .lang-ar .burger-icon {
+        left: auto;
+        right: 0;
     }
     .header {
         padding: 20px 0;
@@ -309,4 +328,23 @@ textarea.form-control {
     .form-control {
         width: 100%!important;
     }
+    .img-text img ,.lang-ar .img-text img{
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    .logo img {
+        width: 200px;
+        height: 40px;
+    }
+    .product-box figure {
+        height: 129px;
+    }
+    .products-list {
+        gap: 9px;
+    }
+    .project-list {
+        gap: 0;
+    }
+
 }

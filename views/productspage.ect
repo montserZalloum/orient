@@ -14,7 +14,7 @@
 <!-- our products -->
 <section class="our-products-section center pt-60 pt-30-p">
     <div class="container p-side-p">
-        <div class="pt-20 pt-0-p products-list d-flex space-between flex-wrap">
+        <div class="pt-20 pt-0-p products-list d-flex flex-wrap">
             <% for key , item of @modules.products : %>
             <div class="product-box mb-30">
                 <a class="d-block h-100" href="/<%- @lang %>/product/<%- item['name-en'] %>" title="<%- item['name-'+@lang] %>">
@@ -30,4 +30,6 @@
 </section>
 
 
-<% include 'includes/footer.ect' %>
+<% if @modules && @modules.footer && @modules.footer.html : %>
+<%- @modules.footer.html %>
+<% end %>

@@ -16,3 +16,7 @@
         </div>
     </div>
 </section>
+
+<% if @modules && @modules.footer && @modules.footer.html : %>
+<%- @modules.footer.html %>
+<% end %>

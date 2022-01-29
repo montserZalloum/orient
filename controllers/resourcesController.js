@@ -57,6 +57,9 @@ exports.saveData = function(req,res){
       fileDate['banner-text-en'] = req.body['banner-text-en']
       fileDate['banner-text-ar'] = req.body['banner-text-ar']
       
+      fileDate['banner-image'] = req.body['banner-image']
+      fileDate['our-projects-banner-image'] = req.body['our-projects-banner-image']
+      
       fileDate['our-projects-text-en'] = req.body['our-projects-text-en']
       fileDate['our-projects-text-ar'] = req.body['our-projects-text-ar']
       
@@ -108,6 +111,50 @@ exports.getResources = function (req, res, params, callback) {
 
   } catch (exp) {
     console.error("getResources exp::", exp);
+    //            require('./errorpageController.js').get500(req,res);
+    return callback(result);
+  }
+};
+
+exports.getFooter = function (req, res, params, callback) {
+  var result = {
+    json: null,
+    html: ""
+  };
+
+  try {
+    config.clear();
+    if (fs.existsSync(configsUrl + "/resources.json")) {
+      var fileDate = config("resources");
+      delete fileDate._merge;
+      
+      res.render('includes/footer.ect', {
+        conf: req.conf,
+        lang: req.params.lang || 'en',
+        t: req.conf.translate,
+        data: fileDate,
+      }, function (err, html) {
+        if (err) {
+            console.error(("Error Rendering ("+req.conf.reqUrl+") => includes/footer.ect::"), err);
+            return callback(result);
+        } else {
+            try {
+                result.html = html;
+            } catch (exp) {
+                console.warn(("Failed Minifying includes/footer.ect::"), exp);
+                result.html = html;
+            }
+            return callback(result);
+        }
+      });
+
+
+    } else {
+      return callback(result);
+    }
+
+  } catch (exp) {
+    console.error("getFooter exp::", exp);
     //            require('./errorpageController.js').get500(req,res);
     return callback(result);
   }

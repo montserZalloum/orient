@@ -3,9 +3,9 @@
         <div class="footer-box d-flex space-between flex-wrap-p">
             <div class="footer-logo w-30 w-100-p mb-40-p">
                 <a class="d-flex" href="/<%- @lang %>" title="<%- @t('home_title',@lang) %>">
-                    <img src="<%- @conf.assets %>/images/logo.png" class="" width="100" height="100" alt="<%- @t('home_title',@lang) %>" />
+                    <img src="<%- @conf.assets %>/images/logo-2.png" class="" width="100" height="100" alt="<%- @t('home_title',@lang) %>" />
                 </a>
-                <p class="font-14 mt-30"><%= @modules.resources['footer-text-'+@lang] %></p>
+                <p class="font-14 mt-30"><%= @data['footer-text-'+@lang] %></p>
             </div>
             <div class="footer-col">
                 <h3 class="font-18 bold mb-30"><%- @t('site_links',@lang) %></h3>
@@ -19,10 +19,13 @@
             <div class="footer-col">
                 <h3 class="font-18 bold mb-30"><%- @t('get_in_touch',@lang) %></h3>
                 <ul class="footer-links m-0 p-0">
-                    <li class="mb-20"><a class="white text-hover font-16 d-block" href="tel:+<%- @modules.resources['mobile'] %>" title="<%- @t('phone',@lang) %>">+<%- @modules.resources['mobile'] %></a></li>
-                    <li class="mb-30"><a class="white text-hover font-16 d-block" href="mailto:<%- @modules.resources['email'] %>" title="<%- @t('email',@lang) %>"><%- @modules.resources['email'] %></a></li>
+                    <li class="mb-20"><a class="white text-hover font-16 d-block" href="tel:+<%- @data['mobile'] %>" title="<%- @t('phone',@lang) %>">+<%- @data['mobile'] %></a></li>
+                    <li class="mb-30"><a class="white text-hover font-16 d-block" href="mailto:<%- @data['email'] %>" title="<%- @t('email',@lang) %>"><%- @data['email'] %></a></li>
                     <div class="social-links d-flex align-center">
-                        <a href="#" title="">f</a>
+                        
+                        <a class="mr-30" href="#" title="facebook"><img src="<%- @conf.assets %>/images/facebook.png" class="" width="14" height="25" alt="facebook" /></a>
+                        <a class="mr-30" href="#" title="instagram"><img src="<%- @conf.assets %>/images/instagram.png" class="" width="25" height="25" alt="instagram" /></a>
+                        <a href="#" title="linkedin"><img src="<%- @conf.assets %>/images/linkedin.png" class="" width="25" height="24" alt="linkedin" /></a>
                     </div>
                 </ul>
             </div>

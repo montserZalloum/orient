@@ -5,7 +5,7 @@
 <% block 'body-class' : %>front homepage <% end %>
 
 <section class="banner-box-home relative">
-    <img class="main-img object-fit" src="https://i.pinimg.com/originals/01/5a/17/015a1757e67f766a12621af543b3a5fd.jpg">
+    <img class="main-img object-fit" src="/uploads/<%- @modules.resources['banner-image'] %>">
     <div class="container z-1 d-flex align-center h-100 justify-center">
         <div class="p-side-p">
             <h1 class="bold white pre-line center font-40 font-20-p"><%- @modules.resources['banner-text-'+@lang] %></h1>
@@ -24,10 +24,10 @@
 <section class="our-products-section center pb-60 pb-50-p">
     <div class="container p-side-p">
         <h2 class="font-26 bold"><%- @t('our_products',@lang) %></h2>
-        <div class="pt-20 products-list d-flex space-between flex-wrap">
+        <div class="pt-20 products-list d-flex flex-wrap">
             <% counter = 0 %>
             <% for key , item of @modules.products : %>
-            <% if counter < 8 : %>
+            <% if item['exportable'] == 'true' && counter < 8 : %>
             <div class="product-box mb-30">
                 <a class="d-block h-100" href="/<%- @lang %>/product/<%- item['name-en'] %>" title="<%- item['name-'+@lang] %>">
                     <figure class="relative d-flex">
@@ -47,7 +47,7 @@
 </section>
 
 <!-- projects banner -->
-<section class="our-projects-banner center relative">
+<section class="our-projects-banner center relative" style="background-image:url(/uploads/<%- @modules.resources['our-projects-banner-image'] %>)">
     <div class="container z-1 p-side-p">
         <h2 class="uppercase font-40 bold blue pb-20 font-26-p pb-10-p"><%- @t('our_projects',@lang) %></h2>
         <p class="blue font-40 pre-line font-18-p"><%- @modules.resources['our-projects-text-'+@lang] %></p>
@@ -60,7 +60,7 @@
         <div class="project-list d-flex space-between flex-wrap">
             <% projectCounter = 0 %>
             <% for key , item of @modules.projects : %>
-            <% if projectCounter < 3 : %>
+            <% if item['exportable'] == 'true' && projectCounter < 3 : %>
             <div class="project-box w-32 w-100-p mb-20-p">
                 <figure class="relative w-100">
                     <img class="object-fit w-100" src="/uploads/<%- item['image'] %>" width="auto" height="240" alt="<%- item['name-'+@lang] %>">
@@ -78,5 +78,6 @@
     </div>
 </div>
 
-
-<% include 'includes/footer.ect' %>
+<% if @modules && @modules.footer && @modules.footer.html : %>
+<%- @modules.footer.html %>
+<% end %>

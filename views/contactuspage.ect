@@ -51,4 +51,6 @@
 
 
 
-<% include 'includes/footer.ect' %>
+<% if @modules && @modules.footer && @modules.footer.html : %>
+<%- @modules.footer.html %>
+<% end %>

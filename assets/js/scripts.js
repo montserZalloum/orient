@@ -79,7 +79,6 @@ function add(type) {
                 'instagram': $('#instagram').val(),
                 'linkedin': $('#linkedin').val(),
             }
-            debugger;
             break;
         // product
         case 'new-product':
@@ -95,7 +94,6 @@ function add(type) {
                 'full-description-ar': $('#full-description-ar').val(),
                 'exportable': $('#exportable').is(':checked')
             }
-            debugger;
             options.refresh = true
             break;
         case 'edit-product':
@@ -139,7 +137,7 @@ function add(type) {
             options.refresh = true
             break;
     }
-
+    
     $('form[type="'+type+'"] [required-img][type="file"]').each(function () {
         hasImage = true;
         var id = $(this).attr('id')

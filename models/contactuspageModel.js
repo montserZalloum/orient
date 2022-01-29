@@ -21,6 +21,11 @@ exports.getContactUspageContent = function(req,res,params,callback){
                 return cb(null, result);
             });
         },
+        footer: function(cb) {
+            require('../controllers/resourcesController').getFooter(req,res,{},function(result){
+                return cb(null, result);
+            });
+        },
     }, function(err, results) {
         if(err){
             console.error("getContactUspageContent err:",err)

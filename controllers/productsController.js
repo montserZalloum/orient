@@ -183,16 +183,21 @@ exports.getProduct = function (req, res, params, callback) {
     json: null,
     html: ""
   };
-
+  
   try {
     config.clear();
     if (fs.existsSync(configsUrl + "/products.json")) {
       var fileDate = config("products");
       delete fileDate._merge;
-      
-      var obj = fileDate[req.params.product]
+      var obj = {}
+      for (i in fileDate) {
+        if (fileDate[i]['name-en'] == req.params.product) {
+          obj = fileDate[i]
+        }
+      }
       res.render('partials/product.ect', {
         conf: req.conf,
+        lang: req.params.lang || 'en',
         data: obj,
       }, function (err, html) {
         if (err) {

@@ -14,7 +14,7 @@
 <!-- projects list -->
 <div class="project-list-box pt-60 pt-30-p">
     <div class="container p-side-p">
-        <div class="project-list d-flex space-between flex-wrap">
+        <div class="project-list d-flex flex-wrap">
             <% for key , item of @modules.projects : %>
             <div class="project-box w-32 w-100-p mb-30 mb-20-p">
                 <figure class="relative w-100">
@@ -31,4 +31,6 @@
 </div>
 
 
-<% include 'includes/footer.ect' %>
+<% if @modules && @modules.footer && @modules.footer.html : %>
+<%- @modules.footer.html %>
+<% end %>

@@ -3,7 +3,6 @@ var path = require("path");
 var configsUrl = path.normalize(__dirname + "/../configs");
 var config = require("konphyg")(configsUrl);
 
-
 exports.getAdminContactUsList = function (req, res, params, callback) {
   var result = {
     json: null,
@@ -46,6 +45,7 @@ exports.getAdminContactUsList = function (req, res, params, callback) {
   }
 };
 
+
 exports.sendMessage = function(req,res){
   
   try {
@@ -67,10 +67,11 @@ exports.sendMessage = function(req,res){
       fileDate[Object.keys(obj)[0]] = formatedData;
       fileDate = JSON.stringify(fileDate);
 
-
+      
       fs.writeFileSync(configsUrl + "/contactus.json", fileDate);
-
+      
       return res.status(200).send('ok');
+      
     } else {
       return res.status(500).send('error');
     }
@@ -80,4 +81,3 @@ exports.sendMessage = function(req,res){
   }
 
 }
-
