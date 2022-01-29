@@ -98,7 +98,6 @@ exports.getResources = function (req, res, params, callback) {
     if (fs.existsSync(configsUrl + "/resources.json")) {
       var fileDate = config("resources");
       delete fileDate._merge;
-      
 
       return callback(fileDate);
 

@@ -4,6 +4,7 @@ $(document).ready(function() {
         var name = $('#name').val();
         var email = $('#email').val();
         var message = $('#message').val()
+        var mobile = $('#mobile').val()
         if (email != '' && message != '') {
             e.preventDefault();
             $('#submit').addClass('no-click')
@@ -14,6 +15,7 @@ $(document).ready(function() {
                     name: name,
                     email: email,
                     message: message,
+                    mobile: mobile
                 }
             }).done(function (data) {
                 $('#submit').removeClass('no-click')
@@ -36,6 +38,9 @@ $(document).ready(function() {
         $('body').removeClass('overflow-hidden')
     })
 
+    // switch lang link
+    var switchToLang = $('[switch-lang]').attr('href')
+    $('[switch-lang]').attr('href',window.location.origin + window.location.pathname.replace('/'+lang,switchToLang) )
 })
 
 function showAlert() {

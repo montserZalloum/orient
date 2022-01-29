@@ -17,11 +17,16 @@ exports.getAdminProductspageContent = function(req,res,params,callback){
 
 exports.getProductspageContent = function(req,res,params,callback){
     async.parallel({
-        productsList: function(cb) {
+        products: function(cb) {
             require('../controllers/productsController').getProductsList(req,res,{},function(result){
                 return cb(null, result);
             });
         },
+        resources: function(cb) {
+            require('../controllers/resourcesController').getResources(req,res,{},function(result){
+                return cb(null, result);
+            });
+        }
     }, function(err, results) {
         if(err){
             console.error("getProductspageContent err:",err)
@@ -37,6 +42,11 @@ exports.getProductpageContent = function(req,res,params,callback){
                 return cb(null, result);
             });
         },
+        resources: function(cb) {
+            require('../controllers/resourcesController').getResources(req,res,{},function(result){
+                return cb(null, result);
+            });
+        }
     }, function(err, results) {
         if(err){
             console.error("getProductpageContent err:",err)

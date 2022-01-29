@@ -79,6 +79,7 @@ function add(type) {
                 'instagram': $('#instagram').val(),
                 'linkedin': $('#linkedin').val(),
             }
+            debugger;
             break;
         // product
         case 'new-product':

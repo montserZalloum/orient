@@ -29,7 +29,7 @@ router.get('/:lang(en|ar)/projects',require('../controllers/projectspageControll
 
 // products
 router.get('/:lang(en|ar)/products',require('../controllers/productspageController').getProductspage);
-router.get('/:lang(en|ar)/:product',require('../controllers/productspageController').getProductpage);
+router.get('/:lang(en|ar)/product/:product',require('../controllers/productspageController').getProductpage);
 
 
 

@@ -18,7 +18,7 @@
         <div class="d-flex align-center space-between flex-wrap-p flip-column-p mb-30-p">
             <div class="w-48 w-100-p p-side-p">
                 <h2 class="font-26 black bold mb-20"><%- @t('our_goals',@lang) %></h2>
-                <p class="font-18">The story began in 1954, with the establishment of a cooperative for the manufacture of agricultural equipment, tanks and other iron parts. And in order to keep pace with the development and the desire to modernize and increase the products and the entry of new generations, the Abdeen Foundation was established </p>
+                <p class="font-18"><%- @modules.resources['ourgoals-'+@lang] %></p>
             </div>
             <img class="goals-img w-100-p mb-30-p" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="570" height="320">
         </div>
@@ -26,8 +26,12 @@
             <img class="goals-img w-100-p mb-30-p" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="570" height="320">
             <div class="w-48 w-100-p p-side-p">
                 <h2 class="font-26 black bold mb-20"><%- @t('our_mission',@lang) %></h2>
-                <p class="font-18">The story began in 1954, with the establishment of a cooperative for the manufacture of agricultural equipment, tanks and other iron parts. And in order to keep pace with the development and the desire to modernize and increase the products and the entry of new generations, the Abdeen Foundation was established </p>
+                <p class="font-18"><%- @modules.resources['ourmission-'+@lang] %></p>
             </div>
         </div>
     </div>
 </section>
+
+
+
+<% include 'includes/footer.ect' %>

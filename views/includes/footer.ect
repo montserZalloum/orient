@@ -3,9 +3,9 @@
         <div class="footer-box d-flex space-between flex-wrap-p">
             <div class="footer-logo w-30 w-100-p mb-40-p">
                 <a class="d-flex" href="/<%- @lang %>" title="<%- @t('home_title',@lang) %>">
-                    <img src="<%- @conf.assets %>/images/logo.png" class="" width="100" height="100" alt="" />
+                    <img src="<%- @conf.assets %>/images/logo.png" class="" width="100" height="100" alt="<%- @t('home_title',@lang) %>" />
                 </a>
-                <p class="font-14 mt-30">Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to.</p>
+                <p class="font-14 mt-30"><%= @modules.resources['footer-text-'+@lang] %></p>
             </div>
             <div class="footer-col">
                 <h3 class="font-18 bold mb-30"><%- @t('site_links',@lang) %></h3>
@@ -17,10 +17,10 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h3 class="font-18 bold mb-30">Get In Touch</h3>
+                <h3 class="font-18 bold mb-30"><%- @t('get_in_touch',@lang) %></h3>
                 <ul class="footer-links m-0 p-0">
-                    <li class="mb-20"><a class="white text-hover font-16 d-block" href="tel:+962 79 9999999" title="<%- @t('phone',@lang) %>">+962 79 9999999</a></li>
-                    <li class="mb-30"><a class="white text-hover font-16 d-block" href="mailto:info@orientabdeen.com" title="<%- @t('email',@lang) %>">info@orientabdeen.com</a></li>
+                    <li class="mb-20"><a class="white text-hover font-16 d-block" href="tel:+<%- @modules.resources['mobile'] %>" title="<%- @t('phone',@lang) %>">+<%- @modules.resources['mobile'] %></a></li>
+                    <li class="mb-30"><a class="white text-hover font-16 d-block" href="mailto:<%- @modules.resources['email'] %>" title="<%- @t('email',@lang) %>"><%- @modules.resources['email'] %></a></li>
                     <div class="social-links d-flex align-center">
                         <a href="#" title="">f</a>
                     </div>

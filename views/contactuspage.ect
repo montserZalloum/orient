@@ -16,19 +16,18 @@
         <div class="d-flex space-between flex-wrap-p">
             <div class="w-50 pr-30 w-100-p p-side-0-p pb-60-p">
                 <h2 class="font-26 bold mb-25"><%- @t('address',@lang) %></h2>
-                <p class="font-18 pre-line mb-50 mb-40-p">lorem Ipsum is simply dummy text
-                     of the printing and typesetting
-                      industry.</p>
+                <p class="font-18 pre-line mb-50 mb-40-p"><%- @modules.resources['address-'+@lang] %></p>
                 <div class="mb-50 mb-40-p">
                     <h2 class="font-26 bold mb-25"><%- @t('phone',@lang) %></h2>
-                    <a class="text-hover black font-18" href="tel:+962 79 9999999">+962 79 9999999</a>
+                    <a class="text-hover black font-18" href="tel:+<%- @modules.resources['mobile'] %>">+<%- @modules.resources['mobile'] %></a>
                 </div>
                 <h2 class="font-26 bold mb-25"><%- @t('email',@lang) %></h2>
-                <a class="text-hover black mb-50 font-18 mb-40-p" href="mailto:info@orientabdeen.com">info@orientabdeen.com</a>
+                <a class="text-hover black mb-50 font-18 mb-40-p" href="mailto:<%- @modules.resources['email'] %>"><%- @modules.resources['email'] %></a>
             </div>
             <div class="w-50 w-100-p">
                 <h2 class="font-26 bold mb-30 pb-5"><%- @t('have_question',@lang) %></h2>
                 <form class="contact-form">
+                    <input type="hidden" id="mobile" value="<%- @modules.resources['mobile'] %>">
                     <div class="form-group mb-20">
                         <input id="name" class="form-control" placeholder="<%- @t('enter_name',@lang) %>">
                     </div>
@@ -49,3 +48,7 @@
 </section>
 
 <div class="alert">Success!</div>
+
+
+
+<% include 'includes/footer.ect' %>

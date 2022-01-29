@@ -15,40 +15,20 @@
 <div class="project-list-box pt-60 pt-30-p">
     <div class="container p-side-p">
         <div class="project-list d-flex space-between flex-wrap">
-            <div class="project-box w-32 w-100-p mb-20-p">
-                <a class="d-block" href="#" title="">
-                    <figure class="relative w-100">
-                        <img class="object-fit w-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="auto" height="240" alt="">
-                    </figure>
-                    <div class="d-flex space-between align-center pt-20 pt-10-p flex-wrap">
-                        <p class="font-18 bold black font-15-p w-68 one-line">Project Name</p>
-                        <p class="font-18 black font-15-p">Project Name</p>
-                    </div>
-                </a>
+            <% for key , item of @modules.projects : %>
+            <div class="project-box w-32 w-100-p mb-30 mb-20-p">
+                <figure class="relative w-100">
+                    <img class="object-fit w-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="auto" height="240" alt="">
+                </figure>
+                <div class="d-flex space-between align-center pt-20 pt-10-p flex-wrap">
+                    <p class="font-18 bold black font-15-p w-68 one-line">Project Name</p>
+                    <p class="font-18 black font-15-p">Project Name</p>
+                </div>
             </div>
-            <div class="project-box w-32 w-100-p mb-20-p">
-                <a class="d-block" href="#" title="">
-                    <figure class="relative w-100">
-                        <img class="object-fit w-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="auto" height="240" alt="">
-                    </figure>
-                    <div class="d-flex space-between align-center pt-20 pt-10-p flex-wrap">
-                        <p class="font-18 bold black font-15-p w-68 one-line">Project Name</p>
-                        <p class="font-18 black font-15-p">Project Name</p>
-                    </div>
-                </a>
-            </div>
-            <div class="project-box w-32 w-100-p mb-20-p">
-                <a class="d-block" href="#" title="">
-                    <figure class="relative w-100">
-                        <img class="object-fit w-100" src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" width="auto" height="240" alt="">
-                    </figure>
-                    <div class="d-flex space-between align-center pt-20 pt-10-p flex-wrap">
-                        <p class="font-18 bold black font-15-p w-68 one-line">Project Name</p>
-                        <p class="font-18 black font-15-p">Project Name</p>
-                    </div>
-                </a>
-            </div>
-            
+            <%end%>
         </div>
     </div>
 </div>
+
+
+<% include 'includes/footer.ect' %>

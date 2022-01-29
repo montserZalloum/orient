@@ -41,6 +41,9 @@
 .project-box figure {
     height: 240px;
 }
+.product-box figure {
+    height: 200px;
+}
 .product-box figure:after,.project-box figure:after{
     content: "";
     left: 0;
