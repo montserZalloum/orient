@@ -1,5 +1,5 @@
 {
-  "name": "cms",
+  "name": "orientabdeen",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,13 +7,9 @@
     "start": "node index.js -p 3000",
     "develop": "nodemon index.js -p 3000"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/montserZalloum/cms"
-  },
-  "author": "M. Zalloum",
+  "author": "T. Waleed",
   "license": "ISC",
-  "homepage": "https://github.com/montserZalloum/cms#readme",
+  "homepage": "http://orientabdeen.com",
   "dependencies": {
     "async": "^2.6.3",
     "axios": "^0.18.1",
