@@ -15,7 +15,7 @@
               <% if @lang == 'ar' : %>
               <% langSwitch = 'en' %>
               <% end %>
-              <li><a switch-lang class="text-hover font-<%- langSwitch %>" href="/<%- langSwitch %>" title=""><%- @t('switchLang',@lang) %></a></li>
+              <li><a switch-lang="<%- langSwitch %>" class="text-hover font-<%- langSwitch %>" href="/<%- langSwitch %>" title=""><%- @t('switchLang',@lang) %></a></li>
           </ul>
         </div>
         <!-- mobile nav -->

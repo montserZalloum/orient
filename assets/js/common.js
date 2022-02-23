@@ -43,6 +43,9 @@ $(document).ready(function() {
     // switch lang link
     var switchToLang = $('[switch-lang]').attr('href')
     $('[switch-lang]').attr('href',window.location.origin + window.location.pathname.replace('/'+lang,switchToLang) )
+    if (window.location.pathname == '/') {
+        $('[switch-lang]').attr('href','/'+$('[switch-lang]').attr('switch-lang'))
+    }
 })
 
 function showAlert() {

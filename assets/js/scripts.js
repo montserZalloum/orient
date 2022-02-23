@@ -211,6 +211,9 @@ $('[remove-id]').click(function() {
         case 'project':
             $('.modal [data-type="'+type+'"]').attr('remove',id)
             break;
+        case 'contactus':
+            $('.modal [data-type="'+type+'"]').attr('remove',id)
+            break;
     }
 })
 
@@ -266,6 +269,9 @@ $('[remove]').click(function(){
             break;
         case 'project':
             url = '/remove-project'
+            break;
+        case 'contactus':
+            url = '/remove-contact-us'
             break;
     }
 

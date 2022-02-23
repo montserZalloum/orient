@@ -18,12 +18,14 @@
                 </tr>
               </thead>
               <tbody type="offer">
-                <% for key,project of @data :%>
+                <% sortedData = Object.keys(@data).reverse() %>
+                <% for index,key of sortedData :%>
                     <tr root-id="<%- key %>">
-                        <th scope="row" ><div user-name class="one-line" style="max-width: 200px;"><%- project.name %></div></th>
-                        <th scope="row" user-email><%- project.email %></th>
-                        <th scope="row" user-message><div style="max-width: 200px;" class="one-line"><%- project.message %></div></th>
+                        <th scope="row" ><div user-name class="one-line" style="max-width: 200px;"><%- @data[key].name %></div></th>
+                        <th scope="row" user-email><%- @data[key].email %></th>
+                        <th scope="row" user-message><div style="max-width: 200px;" class="one-line"><%- @data[key].message %></div></th>
                         <td>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#remove" data-type="contactus" remove-id="<%- key %>">Remove</button>
                             <button class="btn btn-info show-btn" data-toggle="modal" data-target="#show" data-type="contactus" edit-id="<%- key %>">Show</button>
                         </td>
                     </tr>
@@ -37,7 +39,25 @@
   </div>
 </section>
 
-
+<div id="remove" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" aria-hidden="true">
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="exampleModalLabel" class="modal-title">Do you want to remove this item?</h4>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+  
+      <div class="modal-body">
+      <div class="form-group row">
+          <div class="col-sm-12 d-flex">
+          <button type="button" class="btn btn-danger w-50 m-2" remove data-type="contactus">YES</button>
+          <button type="button" class="btn btn-secondary w-50 m-2" data-dismiss="modal">NO</button>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
   
 <div id="show" tabindex="-1" role="dialog" class="modal fade text-left" >
     <div role="document" class="modal-dialog">

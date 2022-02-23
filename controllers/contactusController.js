@@ -12,12 +12,12 @@ exports.getAdminContactUsList = function (req, res, params, callback) {
   try {
     config.clear();
     if (fs.existsSync(configsUrl + "/contactus.json")) {
-      var fileDate = config("contactus");
-      delete fileDate._merge;
+      var fileData = config("contactus");
+      delete fileData._merge;
       
       res.render('partials/admin/contactus.ect', {
         conf: req.conf,
-        data: fileDate,
+        data: fileData,
       }, function (err, html) {
         if (err) {
             console.error(("Error Rendering ("+req.conf.reqUrl+") => partials/admin/contactus.ect::"), err);
@@ -72,6 +72,31 @@ exports.sendMessage = function(req,res){
       
       return res.status(200).send('ok');
       
+    } else {
+      return res.status(500).send('error');
+    }
+  } catch (exp) {
+    console.log(exp);
+    return res.status(500).send('error');
+  }
+
+}
+
+
+exports.removeMessage = function(req,res){
+
+  try {
+    config.clear();
+    if (fs.existsSync(configsUrl + "/contactus.json")) {
+      var fileDate = config("contactus");
+      delete fileDate._merge;
+      delete fileDate[req.body.id];
+      fileDate = JSON.stringify(fileDate);
+
+      fs.writeFileSync(configsUrl + "/contactus.json", fileDate);
+      
+
+      return res.status(200).send('ok');
     } else {
       return res.status(500).send('error');
     }

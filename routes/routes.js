@@ -42,6 +42,7 @@ router.get('/admin/about-us',basicAuthObj ,require('../controllers/aboutuspageCo
 router.post('/admin/about-us',basicAuthObj ,require('../controllers/aboutusController.js').saveData);
 // contact us
 router.get('/admin/contact-us',require('../controllers/contactuspageController.js').getAdminContactUspage);
+router.post('/remove-contact-us',basicAuthObj ,require('../controllers/contactusController.js').removeMessage);
 // resources
 router.get('/admin/resources',basicAuthObj ,require('../controllers/resourcespageController').getAdminResourcespage);
 router.post('/admin/resources',basicAuthObj ,require('../controllers/resourcesController.js').saveData);

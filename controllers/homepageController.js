@@ -7,9 +7,7 @@ exports.getHomepage = function (req, res) {
          req.conf.dir = 'ltr';
          req.conf.lang = 'en';
    }
-   if (!req.conf.lang) {
-         req.conf.lang = 'en'
-   }
+   
    require('../models/homepageModel').getHomepageContent(req, res, {}, function (mdlErr, mdlResp) {
       return res.render('homepage.ect', {
          conf: req.conf,

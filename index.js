@@ -58,6 +58,7 @@ app.use(function(req, res, next) {
         lang = lang.toLowerCase();
         return req.conf.strings[str] && req.conf.strings[str][lang] ? req.conf.strings[str][lang].trim() : str;
     };
+    req.conf.lang = 'en'
     req.conf.assetsVersion = '?v=' + config('services').assetsVersion || '';
     req.conf.assets = process.env.ASSETS || '/assets';
     next();

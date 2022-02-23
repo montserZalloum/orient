@@ -22,10 +22,15 @@
                     <li class="mb-20"><a class="white text-hover font-16 d-block" href="tel:+<%- @data['mobile'] %>" title="<%- @t('phone',@lang) %>">+<%- @data['mobile'] %></a></li>
                     <li class="mb-30"><a class="white text-hover font-16 d-block" href="mailto:<%- @data['email'] %>" title="<%- @t('email',@lang) %>"><%- @data['email'] %></a></li>
                     <div class="social-links d-flex align-center">
-                        
-                        <a class="mr-30" href="#" title="facebook"><img src="<%- @conf.assets %>/images/facebook.png" class="" width="14" height="25" alt="facebook" /></a>
-                        <a class="mr-30" href="#" title="instagram"><img src="<%- @conf.assets %>/images/instagram.png" class="" width="25" height="25" alt="instagram" /></a>
-                        <a href="#" title="linkedin"><img src="<%- @conf.assets %>/images/linkedin.png" class="" width="25" height="24" alt="linkedin" /></a>
+                        <% if @data['facebook'] : %>
+                        <a class="mr-30" href="<%- @data['facebook'] %>" title="facebook"><img src="<%- @conf.assets %>/images/facebook.png" class="" width="14" height="25" alt="facebook" /></a>
+                        <% end %>
+                        <% if @data['instagram'] : %>
+                        <a class="mr-30" href="<%- @data['instagram'] %>" title="instagram"><img src="<%- @conf.assets %>/images/instagram.png" class="" width="25" height="25" alt="instagram" /></a>
+                        <% end %>
+                        <% if @data['linkedin'] : %>
+                        <a href="<%- @data['linkedin'] %>" title="linkedin"><img src="<%- @conf.assets %>/images/linkedin.png" class="" width="25" height="24" alt="linkedin" /></a>
+                        <% end %>
                     </div>
                 </ul>
             </div>

@@ -298,7 +298,7 @@ textarea.form-control {
         color: #fff;
     }
     .mobile-menu a:after {
-        content: "";
+        /* content: ""; */
         right: 28px;
         top: 0;
         bottom: 0;
