@@ -14,7 +14,7 @@ exports.getHomepage = function (req, res) {
          modules: mdlResp,
          lang: req.params.lang || 'en',
          t: req.conf.translate,
-         pageName: 'home'
+         pageName: 'homepage'
       });
    });
 }

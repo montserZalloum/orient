@@ -5,15 +5,15 @@
 	},
 	"view_products": {
 		"en": "View Products",
-		"ar": "English"
+		"ar": "عرض المنتجات"
 	},
 	"contact_us": {
 		"en": "Contact Us",
-		"ar": "English"
+		"ar": "تواصل معنا"
 	},
 	"our_products": {
 		"en": "Our Products",
-		"ar": "English"
+		"ar": "المنتجات"
 	},
 	"back_home": {
 		"en": "Back To Home Page",
@@ -21,98 +21,103 @@
 	},
 	"all_products": {
 		"en": "View All Products",
-		"ar": "English"
+		"ar": "عرض المنتجات"
 	},
 	"our_projects": {
 		"en": "Our Projects",
-		"ar": "English"
+		"ar": "المشاريع"
 	},
 	"site_links": {
 		"en": "Sitelinks",
-		"ar": "English"
+		"ar": "روابط مهمة"
 	},
 	"about_link": {
 		"en": "About",
-		"ar": "English"
+		"ar": "من نحن"
 	},
 	"products_link": {
 		"en": "Products",
-		"ar": "English"
+		"ar": "المنتجات"
 	},
 	"projects_link": {
 		"en": "Projects",
-		"ar": "English"
+		"ar": "المشاريع"
 	},
 	"contact_link": {
 		"en": "Contact Us",
-		"ar": "English"
+		"ar": "تواصل معنا"
 	},
 	"home_title": {
 		"en": "Home",
-		"ar": "English"
+		"ar": "الرئيسية"
 	},
 	"contact_title": {
 		"en": "Contact Us",
-		"ar": "English"
+		"ar": "تواصل معنا"
 	},
 	"about_title": {
 		"en": "About Us",
-		"ar": "English"
+		"ar": "من نحن"
 	},
 	"products_title": {
 		"en": "Products",
-		"ar": "English"
+		"ar": "المنتجات"
 	},
 	"our_goals": {
 		"en": "Our Goals",
-		"ar": "English"
+		"ar": "اهدافنا"
 	},
 	"our_mission": {
 		"en": "Our Mission",
-		"ar": "English"
+		"ar": "مهمتنا"
 	},
 	"get_in_touch": {
 		"en": "Get In Touch",
-		"ar": "English"
+		"ar": "ابقى على تواصل"
 	},
 	"address": {
 		"en": "Address",
-		"ar": "English"
+		"ar": "العنوان"
 	},
 	"phone": {
 		"en": "Phone",
-		"ar": "English"
+		"ar": "الهاتف"
 	},
 	"email": {
 		"en": "Email",
-		"ar": "English"
+		"ar": "البريد الالكتروني"
 	},
 	"have_question": {
 		"en": "Have Some Questions?",
-		"ar": "English"
+		"ar": "لديك سؤال ؟"
 	},
 	"enter_name": {
 		"en": "Enter Your Name",
-		"ar": "English"
+		"ar": "الاسم"
 	},
 	"enter_email": {
 		"en": "Enter Your Email",
-		"ar": "English"
+		"ar": "البريد الالكتروني"
 	},
 	"enter_message": {
 		"en": "Enter Your Message",
-		"ar": "English"
+		"ar": "الرسالة"
 	},
 	"submit": {
 		"en": "Submit",
-		"ar": "English"
+		"ar": "تثبيت"
 	},
 	"copy_rights": {
 		"en": "All Rights Reserved",
-		"ar": "English"
+		"ar": "جميع الحقوق محفوظة لشركة اورينت عابدين"
 	},
 	"who_we_are": {
 		"en": "Who We Are",
-		"ar": "English"
+		"ar": "من نحن"
+	},
+	"orient_abdeen": {
+		"en": "OrientAbdeen",
+		"ar": "اورينت عابدين"
 	}
+
 }

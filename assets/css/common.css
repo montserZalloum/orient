@@ -724,7 +724,16 @@ a:hover {
 .main-links a {
     color:#151515;
 }
-
+.lang-ar .en-only,.lang-en .ar-only {
+    display: none !important;
+}
+.lang-ar input,.lang-ar textarea {
+    font-family: 'Tajawal'!important;
+}
+.lang-ar .contact-form [type="submit"] {
+    padding: 10px 64px 5px;
+    font-weight: bold;
+}
 @media (max-width: 767px) {
     .mo {
         display: block !important;
