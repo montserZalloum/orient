@@ -118,6 +118,11 @@
 	"orient_abdeen": {
 		"en": "OrientAbdeen",
 		"ar": "اورينت عابدين"
+	},
+	"success_msg": {
+		"en": "Your message has been sent",
+		"ar": "تم ارسال الرسالة"
 	}
+	
 
 }

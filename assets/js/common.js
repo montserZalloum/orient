@@ -58,7 +58,7 @@ function showAlert() {
 function sendMail(){
     //update this with your $form selector
     var data = {
-        "access_token": "93xao2sq63apgnlo0y9gcgrb"
+        "access_token": "u59uyfjnhoplptq516non54z"
     };
 
     function onSuccess() {
@@ -77,7 +77,7 @@ function sendMail(){
         // sendButton.val('Sending…');
         // sendButton.prop('disabled',true);
 
-        var subject = 'New Question';
+        var subject = 'Contact Us Form';
         var message = $('#message').val();
         data['subject'] = subject;
         data['text'] = message;

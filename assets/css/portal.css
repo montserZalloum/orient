@@ -166,7 +166,7 @@ textarea.form-control {
     z-index: 999999;
     transition: .4s;
     opacity: 0;
-    width: 200px;
+    min-width: 200px;
     text-align: center;
     left: 0;
     right: 0;
