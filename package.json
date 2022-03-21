@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js -p 3000",
-    "develop": "nodemon index.js -p 3000"
+    "start": "node index.js -p 80",
+    "develop": "nodemon index.js -p 80"
   },
   "author": "T. Waleed",
   "license": "ISC",
