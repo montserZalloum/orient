@@ -1,5 +1,8 @@
 var express = require('express');
 var path = require('path');
+const http = require('http');
+const https = require('https');
+const fs = require("fs");
 var configsUrl = path.normalize(__dirname + '/configs');
 var config = require('konphyg')(configsUrl);
 var cookieParser = require('cookie-parser');
@@ -30,7 +33,29 @@ app.engine('ect', ectRenderer.render);
 app.use('/assets', express.static('assets'));
 app.use('/uploads', express.static('uploads'));
 
-app.listen(program.port);
+if (process.env.NODE_ENV === "production") {
+    const privateKey = fs.readFileSync('/etc/letsencrypt/live/orientabdeen.com/privkey.pem', 'utf8');
+    const certificate = fs.readFileSync('/etc/letsencrypt/live/orientabdeen.com/fullchain.pem', 'utf8');
+    const ca = fs.readFileSync('/etc/letsencrypt/live/orientabdeen/chain.pem', 'utf8');
+    const credentials = {
+        key: privateKey,
+        cert: certificate,
+        ca: ca
+    };
+
+    https.createServer(credentials, app).listen(443, () => {
+        console.log('HTTPS Server running on port 443');
+    });
+    http.createServer(function (req, res) {
+        res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+        res.end();
+    }).listen(80);
+} else if (process.env.NODE_ENV === "development") {
+    app.listen(program.port);
+} else {
+    app.listen(program.port);
+}
+
 console.log('Listening on port '+program.port);
 
 // view engine setup
