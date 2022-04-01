@@ -79,7 +79,7 @@ exports.saveData = function(req,res){
     if (fs.existsSync(configsUrl + "/products.json")) {
       var fileDate = config("products");
       delete fileDate._merge;
-
+      
       var id = req.body.id;
       var obj = {
           [id] : {
@@ -90,11 +90,25 @@ exports.saveData = function(req,res){
           "description-ar": req.body['description-ar'],
           "full-description-en": req.body['full-description-en'],
           "full-description-ar": req.body['full-description-ar'],
+          "name-2-en": req.body['name-2-en'],
+          "name-2-ar": req.body['name-2-ar'],
+          "image-2": req.body['image-2'],
+          "description-2-en": req.body['description-2-en'],
+          "description-2-ar": req.body['description-2-ar'],
           "exportable": req.body.exportable
         }
       }
+      var hasSlider = Object.keys(req.body).some(key=> key.includes('image-slide'));
+      if (hasSlider) {
+          obj[id].slider = [];
+          for (i in req.body) {
+              if (typeof req.body[i] == 'string' && req.body[i].includes('image-slide')) {
+                obj[id].slider.push(req.body[i])
+              }
+          }
+      }
       var formatedData = obj[id]
-      
+      console.log(obj[id])
 
       fileDate[Object.keys(obj)[0]] = formatedData;
       fileDate = JSON.stringify(fileDate);
@@ -133,7 +147,24 @@ exports.editData = function(req,res){
         "description-ar": req.body['description-ar'],
         "full-description-en": req.body['full-description-en'],
         "full-description-ar": req.body['full-description-ar'],
+
+        "name-2-en": req.body['name-2-en'],
+        "name-2-ar": req.body['name-2-ar'],
+        "image-2": req.body['edit-image-2'],
+        "description-2-en": req.body['description-2-en'],
+        "description-2-ar": req.body['description-2-ar'],
+
         "exportable": req.body.exportable
+      }
+
+      var hasSlider = Object.keys(req.body).some(key=> key.includes('image-slide'));
+      if (hasSlider) {
+          fileDate[id].slider = [];
+          for (i in req.body) {
+              if (typeof req.body[i] == 'string' && req.body[i].includes('image-slide')) {
+                fileDate[id].slider.push(req.body[i])
+              }
+          }
       }
 
       fileDate = JSON.stringify(fileDate);

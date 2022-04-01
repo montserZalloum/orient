@@ -46,6 +46,21 @@ $(document).ready(function() {
     if (window.location.pathname == '/') {
         $('[switch-lang]').attr('href','/'+$('[switch-lang]').attr('switch-lang'))
     }
+
+    if (document.querySelector('.product-slider') && !window.matchMedia("(max-width: 677px)").matches) {
+        var swiper = new Swiper(".product-slider", {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+        });
+        $('[product-slide-img] img').click(function(){
+            var src = $(this).attr('src');
+            $('[append-img-slide]').attr('src',src);
+        })
+    }
 })
 
 function showAlert() {

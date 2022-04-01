@@ -13,8 +13,7 @@ $('form[type]').submit(function (e) {
 })
 
 
-
-$('[file]').on('change', function(){
+$('body').on("change", "[file]", function () {
     var id = $(this).attr('id');
     if(document.getElementById(id).files && document.getElementById(id).files[0]){
         file = document.getElementById(id).files[0]
@@ -30,12 +29,31 @@ $('[file]').on('change', function(){
             "data": form
         };
         
+        
         $.ajax(settings).done(function (response) {
             var data = JSON.parse(response)
             $('[append-image="'+id+'"] img').attr('src','/uploads/'+ data.fileName)
         });
     }
 })
+$('[add-slider-image]').click(function () {
+    var target = $(this).attr('add-slider-image')
+    var imageNum = Math.random().toString(36).slice(2)
+    var template = `
+    <figure class="image-slide-add">
+        <button>×</button>
+        <input type="file" required-img class="form-control-file" accept="image/*" id="image-slide-${imageNum}" file>
+        <div append-image="image-slide-${imageNum}">
+            <img src="/uploads/">
+        </div>
+    </figure>
+    `
+    $('[append-slider-image="'+target+'"]').append(template)
+})
+
+$('body').on("click", ".image-slide-add button", function () {
+    $(this).parent().remove();
+});
 
 function add(type) {
     
@@ -92,8 +110,15 @@ function add(type) {
                 'description-ar': $('#description-ar').val(),
                 'full-description-en': $('#full-description').val(),
                 'full-description-ar': $('#full-description-ar').val(),
-                'exportable': $('#exportable').is(':checked')
+                'exportable': $('#exportable').is(':checked'),
+
+                'name-2-en': $('#name-2').val(),
+                'name-2-ar': $('#name-2-ar').val(),
+                'image-2': $('#image-2').val(),
+                'description-2-en': $('#description-2').val(),
+                'description-2-ar': $('#description-2-ar').val(),
             }
+            
             options.refresh = true
             break;
         case 'edit-product':
@@ -106,7 +131,13 @@ function add(type) {
                 'description-ar': $('#edit-description-ar').val(),
                 'full-description-en': $('#edit-full-description').val(),
                 'full-description-ar': $('#edit-full-description-ar').val(),
-                'exportable': $('#edit-exportable').is(':checked')
+                'exportable': $('#edit-exportable').is(':checked'),
+
+                'name-2-en': $('#edit-name-2').val(),
+                'name-2-ar': $('#edit-name-2-ar').val(),
+                'image-2': $('#edit-image-2').val(),
+                'description-2-en': $('#edit-description-2').val(),
+                'description-2-ar': $('#edit-description-2-ar').val(),
             }
             options.refresh = true
             break;
@@ -150,13 +181,20 @@ function add(type) {
             data[id] = val.replace('/uploads/','');
         }
     });
-                
+    $('form[type="'+type+'"] [maybe-image][type="file"]').each(function () {
+        hasImage = true;
+        var id = $(this).attr('id')
+        var val = $('[append-image="'+id+'"] img').attr('src')
+        $(this).attr('required',false)
+        data[id] = val.replace('/uploads/','');
+    });
+    
+    
     if (!validate) {
         loading(false);
         showAlert(false)
         return false
     }
-    
     callApi(url,data,options)
     return false
 }
@@ -231,8 +269,31 @@ $('.edit-btn').click(function () {
             $(rootForm).find('#edit-description-ar').val($(elRoot).find('[prod-desc-ar]').html())
             $(rootForm).find('#edit-full-description').val($(elRoot).find('[prod-full-desc]').html())
             $(rootForm).find('#edit-full-description-ar').val($(elRoot).find('[prod-full-desc-ar]').html())
-            $(rootForm).find('[append-image] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
+            $(rootForm).find('[append-image="edit-image"] img').attr('src',$(elRoot).find('[prod-img]').attr('src'))
             $(rootForm).find('#edit-exportable').prop('checked',($(elRoot).find('[prod-exportable]').html() == 'true' ? true : false ))
+
+            $(rootForm).find('#edit-name-2').val($(elRoot).find('[prod-name-2]').html())
+            $(rootForm).find('#edit-name-2-ar').val($(elRoot).find('[prod-name-2-ar]').html())
+            $(rootForm).find('#edit-description-2').val($(elRoot).find('[prod-desc-2-en]').html())
+            $(rootForm).find('#edit-description-2-ar').val($(elRoot).find('[prod-desc-2-ar]').html());
+            $(rootForm).find('[append-image="edit-image-2"] img').attr('src',$(elRoot).find('[prod-img-2]').attr('src'))
+            $('[append-slider-image="edit"]').html('')
+            if ($(elRoot).find('[slider]').length > 0) {
+                $(elRoot).find('[slider] [slide]').each(function(){
+                    var slideNum = Math.random().toString(36).slice(2)
+                    var template = `
+                    <figure class="image-slide-add">
+                        <button>×</button>
+                        <input type="file" required-img class="form-control-file" accept="image/*" id="image-slide-${slideNum}" file>
+                        <div append-image="image-slide-${slideNum}">
+                            <img src="/uploads/${$(this).html()}">
+                        </div>
+                    </figure>
+                    `;
+                    $('[append-slider-image="edit"]').append(template)
+                })
+            }
+            
             break;
         case 'edit-project':
             $(rootForm).find('#edit-id').val(id)

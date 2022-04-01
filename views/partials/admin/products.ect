@@ -28,6 +28,22 @@
                         <th scope="row" hidden><div prod-desc-ar><%- product['description-ar'] %></div></th>
                         <th scope="row" hidden><div prod-full-desc class="one-line" style="max-width: 200px;"><%- product['full-description-en'] %></div></th>
                         <th scope="row" hidden><div prod-full-desc-ar><%- product['full-description-ar'] %></div></th>
+
+
+                        <th scope="row" hidden><div prod-name-2><%- product['name-2-en'] %></div></th>
+                        <th scope="row" hidden><div prod-name-2-ar><%- product['name-2-ar'] %></div></th>
+                        <th scope="row" hidden><div prod-desc-2-en><%- product['description-2-en'] %></div></th>
+                        <th scope="row" hidden><div prod-desc-2-ar><%- product['description-2-ar'] %></div></th>
+                        <th scope="row" hidden><img prod-img-2 src="/uploads/<%- product['image-2'] %>"></th>
+                        <% if product['slider'] && product['slider'].length > 0 : %>
+                        <th scope="row" hidden slider>
+                          <% for slide in product['slider'] : %>
+                          <div slide><%- slide %></div>
+                            <% end %>
+                        </th>
+                        <%end%>
+
+
                         <th scope="row"><img prod-img style="width: 100px;" src="/uploads/<%- product.image %>"></th>
                         <th scope="row" prod-exportable><%- product.exportable %></th>
                         <td>
@@ -95,12 +111,70 @@
                 <textarea rows="5" class="form-control" required id="full-description"></textarea>
               </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row border-bottom pb-3">
               <label class="col-sm-3 form-control-label">Full Description (ar)</label>
               <div class="col-sm-9">
                 <textarea rows="5" class="form-control" required id="full-description-ar"></textarea>
               </div>
             </div>
+
+
+
+
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Title 2</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="name-2">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Title 2 (ar)</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="name-2-ar">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">image 2</label>
+              <div class="col-sm-9">
+                <input type="file" maybe-image class="form-control-file" accept="image/*" id="image-2" file>
+                <div class="hide" append-image="image-2">
+                    <img class="w-100 mt-2" src="/uploads/">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Description 2</label>
+              <div class="col-sm-9">
+                <textarea rows="5" class="form-control" id="description-2"></textarea>
+              </div>
+            </div>
+            <div class="form-group row border-bottom pb-3">
+              <label class="col-sm-3 form-control-label">Description 2 (ar)</label>
+              <div class="col-sm-9">
+                <textarea rows="5" class="form-control" id="description-2-ar"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Slider</label>
+              <div class="col-sm-9"><div class="btn btn-secondary" add-slider-image="new">Add Image</div></div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <div class="images-slider-add" append-slider-image="new">
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
             <div class="form-group row">
               <label class="col-sm-4 form-control-label">Show in Home Page</label>
               <div class="col-sm-8">
@@ -195,6 +269,72 @@
                 <textarea rows="8" class="form-control" required id="edit-full-description-ar"></textarea>
               </div>
             </div>
+
+
+
+
+
+
+
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Title 2</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="edit-name-2">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Title 2 (ar)</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="edit-name-2-ar">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">image 2</label>
+              <div class="col-sm-9">
+                <input type="file" maybe-image class="form-control-file" accept="image/*" id="edit-image-2" file>
+                <div append-image="edit-image-2">
+                    <img style="width:100px;" class=" mt-2" src="/uploads/">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Description 2</label>
+              <div class="col-sm-9">
+                <textarea rows="5" class="form-control" id="edit-description-2"></textarea>
+              </div>
+            </div>
+            <div class="form-group row border-bottom pb-3">
+              <label class="col-sm-3 form-control-label">Description 2 (ar)</label>
+              <div class="col-sm-9">
+                <textarea rows="5" class="form-control" id="edit-description-2-ar"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label">Slider</label>
+              <div class="col-sm-9"><div class="btn btn-secondary" add-slider-image="edit">Add Image</div></div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <div class="images-slider-add" append-slider-image="edit">
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="form-group row">
               <label class="col-sm-4 form-control-label">Show in Home Page</label>
               <div class="col-sm-8">

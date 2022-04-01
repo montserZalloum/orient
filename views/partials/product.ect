@@ -1,12 +1,39 @@
 <section class="product-section mt-40 mt-20-p center-p">
   <div class="container">
-    <div class="d-flex  flex-wrap-p">
-      <img class="object-fit mr-60 w-60 w-100-p" src="/uploads/<%- @data['image'] %>" width="570" height="320" alt="">
-      <div class="p-side-p">
+    <div class="d-flex flex-wrap-p">
+      <div class="slider-box relative w-50 overflow-hidden mr-60 w-100-p m-0-p">
+        <img class="object-fit main-img-slider w-100" append-img-slide src="/uploads/<%- @data['image'] %>" width="570" height="320" alt="<%- @data['name-'+@lang] %>">
+        <% if @data && @data.slider && @data.slider.length > 0 : %>
+        <!-- Swiper -->
+        <div class="product-slider relative pt-20 pb-20" style="--swiper-navigation-color: #ED7534;">
+            <div class="swiper-wrapper">
+              <% for slide in @data.slider  : %>
+              <div class="swiper-slide" product-slide-img><img src="/uploads/<%- slide %>"></div>
+              <% end %>
+              <div class="swiper-slide" product-slide-img><img src="/uploads/<%- @data['image'] %>"></div>
+            </div>
+            <div class="swiper-button-next do"></div>
+            <div class="swiper-button-prev do"></div>
+        </div>
+        <% end %>
+      </div>
+      <div class="p-side-p w-50 w-100-p">
         <h1 class="font-26 bold mb-10  mt-20-p"><%- @data['name-'+@lang] %></h1>
         <h2 class="font-16 pre-line"><%- @data['description-'+@lang] %></h2>
       </div>
     </div>
     <p class="font-16 pre-line mt-30 bold p-side-p"><%- @data['full-description-'+@lang] %></p>
+
+    <% if @data['name-2-'+@lang] && @data['name-2-'+@lang] != '' : %>
+    <h2 class="font-24 bold mt-40 mb-10 mt-20-p"><%- @data['name-2-'+@lang] %></h2>
+    <% end %>
+
+    <% if @data['description-2-'+@lang] && @data['description-2-'+@lang] != '' : %>
+    <p class="font-16 pre-line mb-20 bold p-side-p"><%- @data['description-2-'+@lang] %></p>
+    <% end %>
+
+    <% if @data['image-2'] && @data['image-2'] != '' : %>
+    <img src="/uploads/<%- @data['image-2'] %>" class="object-fit w-100" alt="<%- @data['name-'+@lang] %>">
+    <% end %>
   </div>
 </section>
