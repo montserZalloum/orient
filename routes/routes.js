@@ -12,6 +12,9 @@ var basicAuthOptions = {
 
 var basicAuthObj = basicAuth(basicAuthOptions);
 
+router.get('/:lang(en|ar)/*', errorpageController.getUnderConstruction);
+router.get('/*', errorpageController.getUnderConstruction);
+
 /* Routes */
 router.get('/',require('../controllers/homepageController.js').getHomepage);
 router.get('/:lang(en|ar)',require('../controllers/homepageController.js').getHomepage);
